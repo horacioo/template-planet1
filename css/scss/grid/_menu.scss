@@ -1,0 +1,29 @@
+.menu-pt-container{
+    border-bottom: 0.1953125vw solid white;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+    display: block;
+    height: auto;
+    overflow: auto;
+    width: 100%;
+    min-height: 2vw;
+    ul {
+        line-height: 4vw;
+        display: block;
+        margin-left: 3.5vw;
+        li {
+            display: block;
+            float: left;
+             margin-right: 1vw;
+
+            a {
+                color: white;
+            }
+        }
+    }
+}
+
+
+.separador,.mobile{
+    display: none;
+}

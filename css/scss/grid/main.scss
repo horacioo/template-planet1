@@ -1,0 +1,49 @@
+@import "../mixins/menu";
+@import "../cores/cores";
+@import "grid.scss";
+@import "../nav/nav";
+@import "../redesSociais/estilo";
+@import "../topo/estilo";
+@import "../textoApresentacao/estilo";
+@import "../produtos/produtos";
+@import "../orcamento/orcamento";
+@import "../maisProdutos/maisProdutos";
+@import "../contato/estilo";
+@import "../blog/blog";
+@import "../footer/footer";
+
+
+.padding {
+   //padding: 1vw;
+   // line-height: 1.5vw;
+}
+
+
+*{font-size: 1.171875vw;}
+
+#wrapper {
+    font-size: 1.07421875vw;
+    font-family: quick;
+}
+
+/********************************************************************/
+#banner1 {
+    display: block;
+    border: 1px solid rgb(254, 210, 122);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-height: 24.4140625vw;
+    p {
+        /*background-color: #fee17a;
+        color: white;
+        font-size: 15px;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        text-align: end;
+        color: #5a5a5a;*/
+    }
+}
+/********************************************************************/

@@ -1,0 +1,271 @@
+@media screen and (min-width: 768px) {
+    @import "../wpcf7/wpcf7";
+
+    #Contato {
+        .posicao {
+            z-index: 20;
+        }
+
+        #movimentoBG {
+            width: 99%;
+            overflow: hidden !important;
+            height: 99%;
+            position: relative;
+
+            .bg1 {
+                background-color: rgba(255, 255, 255, 0.109);
+                height: 10vw;
+                width: 25vw;
+                position: absolute;
+                top: 15vw;
+                left: 9vw;
+                animation: bg1movimento 40s infinite;
+            }
+
+            .bg2 {
+                background-color: rgba(255, 255, 255, 0.101);
+                height: 15vw;
+                width: 29vw;
+                position: absolute;
+                top: 15vw;
+                left: 39vw;
+                animation: bg2movimento 120s infinite;
+            }
+
+            .bg3 {
+                background-color: rgba(255, 255, 255, 0.101);
+                height: 12vw;
+                width: 30vw;
+                position: absolute;
+                top: 8vw;
+                left: 3vw;
+                animation: bg3movimento 80s infinite;
+            }
+
+            .bg4 {
+                background-color: rgba(255, 255, 255, 0.051);
+                height: 12vw;
+                width: 30vw;
+                position: absolute;
+                bottom: 4vw;
+                right: 3vw;
+                animation: bg4movimento 50s infinite;
+            }
+
+            .bg5 {
+                background-color: rgba(255, 255, 255, 0.051);
+                height: 12vw;
+                width: 30vw;
+                position: absolute;
+                bottom: 4vw;
+                right: 30vw;
+                animation: bg5movimento 90s infinite;
+            }
+        }
+
+        @keyframes bg1movimento {
+            0% {
+                left: 0;
+            }
+            50% {
+                left: 90vw;
+            }
+            100% {
+                left: 0vw;
+            }
+        }
+        @keyframes bg2movimento {
+            0% {
+                left: 0;
+                top: 0;
+            }
+            50% {
+                left: 30vw;
+                top: 4vw;
+            }
+            100% {
+                left: 0vw;
+                top: 0;
+            }
+        }
+        @keyframes bg3movimento {
+            0% {
+                left: 0;
+                top: 0;
+                width: 2vw;
+            }
+            50% {
+                left: 50vw;
+                top: 1vw;
+                width: 60vw;
+            }
+            100% {
+                left: 0vw;
+                top: 0;
+                width: 2vw;
+            }
+        }
+        @keyframes bg4movimento {
+            0% {
+                left: 0;
+                top: 0;
+                height: 70vw;
+            }
+            50% {
+                left: 90vw;
+                top: 1vw;
+                height: 10vw;
+            }
+            100% {
+                left: 0vw;
+                top: 0;
+                height: 70vw;
+            }
+        }
+        @keyframes bg5movimento {
+            0% {
+                left: 0;
+                top: 0;
+                width: 12vw;
+                height: 10vw;
+            }
+            50% {
+                left: 90vw;
+                top: 1vw;
+                width: 30vw;
+                height: 60vw;
+            }
+            100% {
+                left: 0vw;
+                top: 0;
+                width: 12vw;
+                height: 10vw;
+            }
+        }
+
+        @keyframes fundao {
+            0% {
+                background-color: $cor1;
+            }
+            50% {
+                background-color: adjust-hue($cor1, -5);
+            }
+            100% {
+                background-color: $cor1;
+            }
+        }
+
+        animation: fundao 20s infinite;
+        font-family: Ardela;
+        display: flex;
+        //width: 98.9vw;
+        padding: 0.9765625vw;
+        align-items: flex-start;
+        gap: 0.9765625vw;
+        flex-shrink: 0;
+        position: relative;
+
+        height: 39.2578125vw;
+        position: relative;
+        picture {
+            position: absolute;
+            left: -2.34375vw;
+            top: -4.296875vw;
+            width: 32.421875vw;
+            height: 43.5546875vw;
+            img {
+                width: 32.421875vw;
+                height: 43.5546875vw;
+            }
+        }
+
+        .texto {
+            /*width: 31.15234375vw;
+            height: 25.29296875vw;
+
+            position: absolute;
+            left: 28.61328125vw;
+            bottom: 3.80859375vw;
+
+            color: #fff;
+            font-family: Ardela Edge X03;
+            font-size: 1.3671875vw;
+            font-style: normal;
+            font-weight: 400;*/
+
+            width: 31.15234375vw;
+            height: 25.29296875vw;
+            position: absolute;
+            left: 28.61328125vw;
+            bottom: 3.80859375vw;
+
+            color: #fff;
+            font-size: 1.3671875vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 2.4541015625vw;
+            
+        
+        }
+
+        form {
+            /*border: 1px solid red;
+            display: flex;
+            width: 37.5vw;
+            height: 29.296875vw;
+            padding: 0.9765625vw;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.9765625vw;
+
+            position: absolute;
+            right: 2.34375vw;
+            top: 4.8828125vw;
+            border: 1px solid darken($cor1, 10);
+
+            section {
+                display: flex;
+                width: 90%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+
+                #enviar {
+                    background-color: $cor4;
+                    padding: 1vw;
+                    border: none;
+                    padding-left: 2vw;
+                    padding-right: 2vw;
+                    color: white;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    &:hover {
+                        background-color: $cor5;
+                    }
+                }
+
+                a {
+                    max-width: 5vw;
+                }
+            }
+
+            span {
+                border: 0px solid red;
+                width: 9.765625vw;
+            }
+            div {
+                display: flex;
+                width: 33.0078125vw;
+                padding: 0.68359375vw 1.171875vw;
+                align-items: center;
+                gap: 0.9765625vw;
+                color: lighten($cor1, 30);
+                input {
+                    width: 22.4609375vw;
+                    height: 3.02734375vw;
+                }
+            }*/
+        }
+    }
+}

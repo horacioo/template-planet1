@@ -1,0 +1,39 @@
+
+
+@mixin lateralRoxa($informacao) {
+    font-family: ardela;
+    color: white;
+    gap: 2.5390625vw;
+    padding-left: 1.78015625vw;
+    padding-right: 1.66015625vw;
+    background-color: $cor1;
+    @if ($informacao == 1) {
+        padding-top: 3.3203125vw;
+    }
+    @if ($informacao == 2) {
+        padding-bottom: 3.3203125vw;
+    }
+    p {
+        font-size: 0.9765625vw;
+        line-height: 2.689453125vw;
+        margin-bottom: 2.5390625vw;
+    }
+
+    .logotipoB {
+        width: 15.625vw;
+        height: auto;
+        path {
+            @include coresControle(4);
+        }
+    }
+
+    picture {
+        img {
+            width: 15.625vw;
+            height: auto;
+            margin-bottom: 2.5390625vw;
+            filter: brightness($brilho) hue-rotate($matiz) saturate($saturacao);
+            //filter: invert(0) sepia(0) saturate($saturacao) hue-rotate($matiz) brightness($brilho);
+        }
+    }
+}

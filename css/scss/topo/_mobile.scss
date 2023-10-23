@@ -1,0 +1,53 @@
+@media screen and (max-width: 767px) {
+    #header {
+        display: flex;
+        //height: 51.26953125vw;
+        padding: 3.41796875vw 3.61328125vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2.63671875vw;
+        //home-page.jpg
+        background-image: url(../../../imagens/home-page.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        #apreesentacao {
+            border-radius: 1.7578125vw;
+            background: rgb(255, 255, 255);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+            color: $cor1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            display: block;
+            width: 80%;
+            padding: 2.734375vw 3.3203125vw;
+            //flex-direction: column;
+            //justify-content: center;
+            align-items: flex-start;
+            gap: 2.1484375vw;
+
+            h1 {
+                font-size: 4.78515625vw;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                font-family: ZenFont;
+            }
+            p {
+                color: $cor1;
+                font-family: Verdana;
+                font-size: 2.4vw;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 3.9736328125vw;
+                font-family: ZenFont;
+            }
+        }
+    }
+}

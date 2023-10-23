@@ -1,0 +1,19 @@
+@import "../mixins/mobile";
+@media screen and (max-width: 767px) {
+    #orcamento {
+        display: flex;
+        padding: 1.26953125vw 1.3671875vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.05078125vw;
+        flex-shrink: 0;
+
+        background-color: lightgrey;
+        color: $cor1;
+
+        b {
+            text-align: center;
+            @include fontesMobile(t);
+           }
+    }
+}

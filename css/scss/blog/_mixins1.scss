@@ -1,0 +1,131 @@
+/*
+Aqui eu informos os containers querys das caixinhas do componente de blog
+*/
+@mixin Borda(){
+    /// border:1px solid red;
+ }
+ 
+@mixin small{
+    z-index: 2;
+    position: absolute;
+    display: block;
+    bottom: 0px;
+    padding: 0.4vw;
+    background-color: #ffffffb5;
+    font-size: 0.8vw;
+    line-height: 1vw;
+    color: $cor1;
+    width: 100%;
+}
+
+ @mixin mini1() {
+     small {  @include small();  }
+     picture {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.626);
+         position: relative;
+         left: 0;
+         top: 0;
+         img {
+             max-width: 101%;
+             height: auto;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+         }
+     }
+ }
+ 
+ @mixin mini2() {
+ 
+    small {  @include small();  }
+ 
+ 
+     picture {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(166, 188, 0, 0);
+         position: relative;
+         //border:1px solid red;
+         img {
+             width: 190%;
+             height: auto;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+         }
+     }
+ }
+ 
+ 
+ 
+ 
+ @mixin mini3() {
+    small {  @include small();  }
+ 
+     picture {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background-color: red;
+         position: relative;
+         left: 0;
+         top: 0;
+         img {
+             max-width: 101%;
+             height: auto;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+         }
+     }
+ }
+ 
+ @mixin mini4() {
+    small {  @include small();  }
+     picture {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background-color: rgb(107, 134, 0);
+         position: relative;
+         left: 0;
+         top: 0;
+         img {
+             max-width: 101%;
+             height: auto;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+         }
+     }
+ }
+ 
+ @mixin mini5() {
+    small {  @include small();  }
+     picture {
+         display: block;
+         width: 100%;
+         height: 100%;
+         background-color: rgb(0, 221, 173);
+         position: relative;
+         left: 0;
+         top: 0;
+         overflow: hidden;
+         img {
+             max-width: 101%;
+             height: auto;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%, -50%);
+         }
+     }
+ }

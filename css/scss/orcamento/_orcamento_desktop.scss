@@ -1,0 +1,22 @@
+@media screen and (min-width: 768px) {
+    #orcamento {
+        display: flex;
+        padding: 1.26953125vw 1.3671875vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.05078125vw;
+        flex-shrink: 0;
+
+        background-color: lightgrey;
+        color: $cor1;
+
+        b {
+            text-align: center;
+            font-family: Ardela;
+            font-size: 1.953125vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 4.482421875vw;
+        }
+    }
+}

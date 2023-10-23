@@ -1,0 +1,189 @@
+@media screen and (min-width: 768px) {
+    @import "./mixins1";
+    /******************************************************************************************************/
+    /******************************************************************************************************/
+    @mixin thumbnails($info: 1) {
+        min-height: 9.5vw;
+        container-name: blogIcones;
+        container-type: inline-size;
+        overflow: hidden;
+        border: 0.09765625vw solid $cor1;
+        /******************************************/
+        /******************************************/
+
+        @container blogIcones (max-width: 99px) {
+            @include Borda();
+            @include mini1();
+        }
+        @container blogIcones (min-width: 100px) and (max-width:199px) {
+            @include Borda();
+            @include mini2();
+        }
+        @container blogIcones (min-width: 200px) and (max-width:299px) {
+            @include Borda();
+            @include mini3();
+        }
+        @container blogIcones (min-width: 300px) and (max-width:499px) {
+            @include Borda();
+            @include mini4();
+        }
+        @container blogIcones (min-width: 500px) and (max-width:700px) {
+            @include Borda();
+            @include mini5();
+        }
+
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+        /******************************************************************************************************/
+    }
+
+    #blogTitulo {
+        display: flex;
+        width: 100%;
+        min-height: 36.42578125vw;
+        padding: 2.63671875vw 2.83203125vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.7765625vw;
+        flex-shrink: 0;
+        @include coresControle(5);
+        h2 {
+            color: #fff;
+            font-family: Ardela;
+            font-size: 2.734375vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 6.275390625vw;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+            font-family: Ardela;
+            font-size: 1.171875vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 2.689453125vw;
+        }
+    }
+
+    #blogContent {
+        font-family: Ardela;
+        position: relative;
+        padding: 1vw;
+
+        article {
+            picture {
+                img {
+                    filter: saturate(0);
+                    &:hover {
+                        filter: saturate(1);
+                    }
+                }
+            }
+        }
+
+        #gridNoticias {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: auto;
+            //border: 1px solid rgb(40, 0, 220);
+            gap: 0.1953125vw;
+
+            grid-template-areas:
+                "blog1 blog1 blog1 blog2 blog2 blog2"
+                "blog1 blog1 blog1 blog4 blog5 blog3"
+                "blog6 blog7 blog8 blog9 blog10 blog3"
+                "blog11 blog12 blog13 blog14 blog15 blog3";
+
+            #blog1 {
+                grid-area: blog1;
+                @include thumbnails(1);
+            }
+            #blog2 {
+                grid-area: blog2;
+                @include thumbnails(2);
+            }
+            #blog3 {
+                grid-area: blog3;
+                @include thumbnails(3);
+            }
+            #blog4 {
+                grid-area: blog4;
+                @include thumbnails(4);
+            }
+            #blog5 {
+                grid-area: blog5;
+                @include thumbnails(6);
+            }
+            #blog6 {
+                grid-area: blog6;
+                @include thumbnails(7);
+            }
+            #blog7 {
+                grid-area: blog7;
+                @include thumbnails(8);
+            }
+            #blog8 {
+                grid-area: blog8;
+                @include thumbnails(9);
+            }
+            #blog9 {
+                grid-area: blog9;
+                @include thumbnails(10);
+            }
+            #blog10 {
+                grid-area: blog10;
+                @include thumbnails(11);
+            }
+            #blog11 {
+                grid-area: blog11;
+                @include thumbnails(12);
+            }
+            #blog12 {
+                grid-area: blog12;
+                @include thumbnails(13);
+            }
+            #blog13 {
+                grid-area: blog13;
+                @include thumbnails(13);
+            }
+            #blog14 {
+                grid-area: blog14;
+                @include thumbnails(15);
+            }
+            #blog15 {
+                grid-area: blog15;
+                @include thumbnails(16);
+            }
+        }
+
+        picture {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0;
+            margin: 0;
+            height: 35.7421875vw;
+            width: 42.4169921875vw;
+            display: block;
+
+            img {
+                height: 100%;
+                //border: 1px solid white;
+                position: absolute;
+                bottom: 0px;
+                margin: 0;
+                padding: 0;
+                right: 0;
+            }
+        }
+    }
+}

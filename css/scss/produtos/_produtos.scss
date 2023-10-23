@@ -1,0 +1,184 @@
+@import "../mixins/mobile";
+
+@mixin sizesImage() {
+    position: relative;
+    picture {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+            width: 101%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    main {
+        font-family: ardela;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: min-max(30px auto);
+        grid-template-areas: 
+       
+        "criaSite   criaSite   criaSite  foto1"
+        "lojas      lojas      lojas     foto2"
+        "sistemas   sistemas   sistemas  foto3"
+        ;
+        
+/*************************************************************/
+        section{
+            padding: 1.5vw;
+            border-bottom: 1px solid $cor1;
+            picture{
+                border:1px solid $cor1;
+                height: 100%;
+                width: 100%;
+                display: block;
+                img{
+                    width: auto;
+                    height: 101%;
+                }
+            }
+        }
+        /*************************************************************/
+        
+        #criacaoDeSite{ 
+            grid-area: criaSite;
+            h2{@include fontesMobile(t);} 
+            p{  @include fontesMobile(p); }
+        }
+
+        #lojasVirtuais{ 
+            grid-area: lojas;
+            h2{@include fontesMobile(t);}   
+            p{ @include fontesMobile(p);  }
+        }
+
+
+        #sistemas{ 
+            grid-area: sistemas;   
+            h2{@include fontesMobile(t);} 
+            p{@include fontesMobile(p); }
+        }
+        
+        #foto1{grid-area: foto1; }
+        #foto2{grid-area: foto2; }
+        #foto3{grid-area: foto3; }
+
+    }
+}
+
+
+
+
+
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+/********************************************************/
+
+@media screen and (min-width: 768px) {
+    main {
+        font-family: ardela;
+        /***********************************************************/
+        #criacaoDeSite {
+            h2 {
+                color: $cor1;
+                text-align: center;
+                font-family: Ardela Edge X03;
+                font-size: 1.66015625vw;
+                font-style: normal;
+                font-weight: 400;
+            }
+            display: flex;
+            padding: 2.24609375vw 3.02734375vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.24609375vw;
+            color: $cor1;
+            p {
+                line-height: 3.28125vw;
+            }
+        }
+        /***********************************************************/
+        #foto1,
+        #foto2,
+        #foto3 {
+            @include sizesImage();
+        }
+
+        /***********************************************************/
+        #lojasVirtuais {
+            display: flex;
+            padding: 2.24609375vw 3.02734375vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2.24609375vw;
+            flex-shrink: 0;
+            h2 {
+                color: $cor1;
+                text-align: center;
+                font-family: Ardela Edge X03;
+                font-size: 1.66015625vw;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            p {
+                text-align: right;
+                font-family: Ardela Edge X03;
+                font-size: 1.171875vw;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 3.28125vw;
+                color: $cor1;
+            }
+        }
+        /***********************************************************/
+
+        #sistemas {
+            color: $cor1;
+            display: flex;
+            padding: 2.24609375vw 3.02734375vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.24609375vw;
+            h2 {
+                color: $cor1;
+                text-align: center;
+                font-family: Ardela Edge X03;
+                font-size: 1.66015625vw;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            p {
+                font-style: normal;
+                font-weight: 400;
+                line-height: 3.28125vw;
+            }
+        }
+        /************************************************************/
+    }
+}

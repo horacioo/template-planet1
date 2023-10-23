@@ -1,0 +1,176 @@
+@media screen and (max-width: 767px) {
+    @mixin thumbnails($info: 1) {
+        min-height: 35vh;
+        container-name: blogIcones;
+        container-type: inline-size;
+        overflow: hidden;
+        border: 0.09765625vw solid $cor1;
+        /******************************************/
+        /******************************************/
+    }
+
+    #blogTitulo {
+        @include coresControle(5);
+        padding: 3vw;
+    }
+
+    h2 {
+        @include fontesMobile(t);
+        color: white;
+    }
+    p {
+        @include fontesMobile(p);
+        color: white;
+    }
+
+    #blogContent {
+        article {
+            picture {
+                img {
+                    //width: auto;
+                    //height: 1001%;
+                    filter: saturate(0);
+                    &:hover {
+                        filter: saturate(1);
+                    }
+                }
+            }
+        }
+
+        height: auto;
+        overflow: auto;
+        //border: 1px solid orange;
+
+        #gridNoticias {
+            border: 1px solid white;
+            height: auto;
+            max-width: 99.8%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: min-max(25vh, auto);
+
+            grid-template-areas:
+                "blog1 blog2"
+                "blog1 blog4"
+                "blog3 blog4"
+                "blog5 blog6"
+                "blog7 blog8"
+                "blog9 blog10"
+                "blog11 blog12"
+                "blog13 blog14"
+                "blog13 blog15";
+
+            #blog1 {
+                grid-area: blog1;
+                //@include thumbnails(1);
+            }
+            #blog2 {
+                grid-area: blog2;
+                //@include thumbnails(2);
+            }
+            #blog3 {
+                grid-area: blog3;
+                //@include thumbnails(3);
+            }
+            #blog4 {
+                grid-area: blog4;
+                //@include thumbnails(4);
+            }
+            #blog5 {
+                grid-area: blog5;
+                //@include thumbnails(6);
+            }
+            #blog6 {
+                grid-area: blog6;
+                //@include thumbnails(7);
+            }
+            #blog7 {
+                grid-area: blog7;
+                //@include thumbnails(8);
+            }
+            #blog8 {
+                grid-area: blog8;
+                //@include thumbnails(9);
+            }
+            #blog9 {
+                grid-area: blog9;
+                //@include thumbnails(10);
+            }
+            #blog10 {
+                grid-area: blog10;
+                //@include thumbnails(11);
+            }
+            #blog11 {
+                grid-area: blog11;
+                //@include thumbnails(12);
+            }
+            #blog12 {
+                grid-area: blog12;
+                //@include thumbnails(13);
+            }
+            #blog13 {
+                grid-area: blog13;
+                //@include thumbnails(13);
+            }
+            #blog14 {
+                grid-area: blog14;
+                //@include thumbnails(15);
+            }
+            #blog15 {
+                grid-area: blog15;
+                //@include thumbnails(16);
+            }
+        }
+
+        article {
+            max-width: 500px;
+            min-height: 100px;
+            max-height: 100%;
+            display: block;
+            overflow: hidden;
+            position: relative;
+
+            small {
+                z-index: 33;
+                background-color: rgba(255, 255, 255, 0.7490196078);
+                position: absolute;
+                display: block;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                color: #5f82b0;
+                line-height: 3vw;
+                font-size: 2.3vw;
+                text-align: justify;
+                font-family: Ardela;
+                padding: 2vw;
+            }
+
+            picture {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+                display: block;
+                //border: 1px solid rgb(5, 225, 245);
+                overflow: hidden;
+                //border: 1px solid red;
+
+                img {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    object-fit: cover;
+                    max-width: 100%;
+                    object-position: center;
+                }
+            }
+        }
+    }
+}

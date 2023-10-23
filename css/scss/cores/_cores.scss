@@ -1,0 +1,39 @@
+$cor2: #FFC225;
+//$cor1: #007cac;
+//$cor1: #0096c0;
+//$cor1: #00b3c0;
+$cor1: #0098ba;
+/**************************************/
+$cor3:adjust-hue($cor1,20deg);
+$cor4:adjust-hue($cor1,40deg);
+$cor5:adjust-hue($cor1,60deg);
+$cor6:adjust-hue($cor1,80deg);
+$cor7:adjust-hue($cor1,100deg);
+/***************************************/
+
+
+$cor8:lighten(adjust-hue($cor1,30deg),20);
+
+$corAnalise: adjust-hue($cor1,180deg);
+$matiz:  hue($corAnalise);
+$saturacao : saturation($corAnalise);
+$brilho: lightness($corAnalise);
+
+
+/***********************************************/
+/***********************************************/
+@mixin coresControle($tipo){
+    @if($tipo==1){fill: lighten(adjust-hue($cor1,30deg),20);}
+    @else if($tipo==2){fill: lighten(adjust-hue($cor1,180deg),80);}
+    @else if($tipo==5){background-color: adjust-hue($cor1, -15deg);}
+    @else if($tipo==6){fill: lighten(adjust-hue($cor1,-180deg),40);}
+
+    
+    @else if($tipo==3){fill: lighten(adjust-hue($cor1,-180deg),40);}
+    @else if($tipo==4){fill: lighten(adjust-hue($cor1,-180deg),40);}
+    @else if($tipo==7){background-color: lighten(adjust-hue($cor1,-180deg),40);}
+
+
+}
+/***********************************************/
+/***********************************************/

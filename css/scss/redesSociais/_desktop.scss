@@ -1,0 +1,71 @@
+@media screen and (min-width: 768px) {
+    #RedesSociais {
+      
+        .menuIcon {
+            width: 2.9296875vw;
+            height: auto;
+            path {
+                @include coresControle(2);
+                &:hover {
+                    fill: lighten(adjust-hue($cor1, 30deg), 1%);
+                }
+            }
+        }
+
+        display: flex;
+        padding: 1.5625vw 2.1484375vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.63671875vw;
+        right: 0px;
+
+        background-color: rgba($cor1, 0.5);
+        box-shadow: 7px 7px 4px 0px rgba(0, 0, 0, 0.25);
+
+        a {
+            opacity: 0;
+            picture {
+                img {
+                    width: 2.34vw;
+                    height: auto;
+                }
+            }
+            :hover {
+                &:before {
+                    content: "";
+                    border-radius: 4vw;
+                    background-color: rgba(255, 255, 255, 0.269);
+                    position: absolute;
+                    z-index: -2;
+                    width: 5vw;
+                    height: 5vw;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    /*************************************************/
+    .firstAcess {
+        position: relative;
+        animation: entrada 1s forwards;
+    }
+    /*************************************************/
+
+    @keyframes entrada {
+        0% {
+            opacity: 0;
+            top: -42vw;
+        }
+        60% {
+            top: 6vw;
+        }
+        100% {
+            opacity: 1;
+            top: 0vw;
+        }
+    }
+}

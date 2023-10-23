@@ -1,0 +1,54 @@
+@import "../mixins/mobile";
+@import "../wpcf7/wpcf7";
+
+@media screen and (max-width: 761px) {
+    #Contato {
+        box-sizing: border-box;
+        background-color: lighten($cor1,0);
+        max-width: 97.7vw;
+        padding-top: 3vh;
+        padding-bottom: 5vh;
+
+        padding-left: 4vw;
+        padding-right: 4vw;
+
+        picture{
+            img{max-width: 10vw;}
+        }
+        .texto{
+            @include fontesMobile(p);  
+            color:white;
+        }
+        form{
+            margin-top: 3vw;
+            position: relative;
+            display: block;  
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 3vw;
+            div{ margin-bottom: 3vw;}
+            span{
+             
+                @include fontesMobile(p); 
+                
+            }
+            input{
+                width: 100%;
+                text-align: center;
+                @include fontesMobile(p); 
+                
+            }
+            #enviar{
+                left: 50%;
+                transform: translateX(-50%);
+                position: relative;
+                border: none;
+                background-color: $cor1;
+                color: white;
+                width: 30vw;
+                text-align: center;
+            }
+        }
+    }
+}
