@@ -1,0 +1,95 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/util/breakpoints";
+@import "../../../css/mixins/button";
+
+.screen-reader-text {
+    width: 1px;
+    overflow: hidden;
+}
+
+@include respond-to(bigger) {
+
+    #icon{display: none;}
+
+    #fundao{
+        display: none;
+    }
+
+    nav {
+        padding-top:0.5859375vw;
+        padding-bottom: 0.5859375vw;
+        padding-left: 3.61328125vw;
+        padding-right: 3.61328125vw;
+        background-color: $cor1;
+        display: flex;
+        flex-direction: row-reverse;
+        color: white;
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 1.26953125vw;
+            li {
+                position: relative;
+                white-space: nowrap;
+                display: flex;
+                flex-direction: row-reverse;
+                a {
+                    color: white;
+                    text-transform: capitalize;
+                    font-weight: 200;
+                    align-content: center;
+                }
+                font-size: 0.87890625vw;
+                
+                &:hover{
+                    ul{
+                        display: flex;
+                    }
+                }
+                /*************************************************/
+                ul {
+                    display: none;
+                    position: absolute;
+                    //display: flex;
+                    flex-direction: column;
+                    z-index: 3000;
+                    align-items: flex-start;
+                    padding-top: 2vw;
+                    gap: 0.4vw;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    li{
+                        background-color: $cor1;
+                        width: 100%;
+                        padding: 1vw;
+                        border-radius: 0.7vw;
+                        text-align: left;
+                        font-size: 1.3671875vw; //1.1vw;
+                        box-shadow: 0.78125vw 0.78125vw 2.78125vw $cor1;
+                        
+                        &:hover{
+                            animation: menuLi 200ms forwards;
+                        }
+                    }
+                }
+                /*************************************************/
+        
+
+            }
+        }
+    }
+
+
+
+    @keyframes menuLi {
+        0%   { background-color: $cor1; }
+        50% { background-color:$cor4;  }
+        100% { background-color:$cor1;  }
+    }
+
+
+
+}

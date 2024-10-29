@@ -1,0 +1,88 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/util/breakpoints";
+@import "../../../css/mixins/button";
+
+.screen-reader-text {
+    width: 1px;
+    overflow: hidden;
+}
+
+@include respond-to(mobile) {
+    #blog {
+        margin-left:8.59375vw;
+        margin-right: 2.9296875vw;
+        height: auto;
+        position: relative;
+        @include fontes();
+
+        h2 {
+            margin-bottom: 1.953125vw;
+            color: darken($cor1, 15);
+        }
+        ul {
+            
+            margin: 0;
+            padding: 0;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 1.7744140625vw;
+
+            position: relative;
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            li {
+
+                min-height: 27.333984375vw;
+                padding: 1.111328125vw;
+                border: 0.09765625vw solid #e0e0e0;
+                display: block;
+                border-radius: 1.0458984375vw;
+                gap: 1.07421875vw;
+                align-items: center;
+                flex-direction: column;
+                background-color: white;
+                width: 90%;
+                
+
+                picture {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border: 1px solid $cor1;
+                        border-radius: 0.48828125vw;
+                    }
+                }
+                .titulo {
+                    color: darken($cor1, 15);
+                    margin-bottom: 3vw;
+                    display: block;
+                    text-align: center;
+                }
+                .descricao {
+                    color: darken($cor1, 10);
+                    line-height: 1.34;
+                    text-align: justify;
+                }
+
+                .button {
+                    background-color: $cor1;
+                    padding: 2%;
+                    color: white;
+                    border-radius: 0.29296875vw;
+                    width: 100%;
+                    align-items: center;
+                    text-align: center;
+                    display: block;
+                    margin-top: 4vw;
+                }
+            }
+        }
+    }
+}

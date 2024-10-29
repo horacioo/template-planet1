@@ -1,0 +1,212 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/util/breakpoints";
+@import "../../../css/mixins/button";
+
+.screen-reader-text {
+    width: 1px;
+    overflow: hidden;
+}
+
+
+@mixin paragrafos(){
+    position: absolute;
+    width: 44.82421875vw;
+    min-height: 9.375vw;
+    height: auto;
+    font-size: 1.66015625vw;
+    line-height: 1.438;
+    margin-bottom:3.515625vw;
+    color: $cor1;
+    text-align: right;
+    @content
+}
+
+
+@include respond-to(bigger) {
+    main {
+        padding-left: 7.421875vw;
+        padding-right: 9.375vw;
+        padding-top: 4.58984375vw;
+        position: relative;
+        background-image: url('#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral.avif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        //background-position-y:12vw ;
+
+
+
+        .buttom {
+            @include botao() {
+                background-color: $cor1;
+            }
+        }
+
+        .buttom2 {
+            @include botao() {
+                background-color: $cor2;
+            }
+        }
+
+        header {
+            h1 {
+                margin-top: 5.37109375vw;
+                color: $cor1;
+                width: 34.71484375vw;
+                font-size: 4.00390625vw;
+                line-height: 0.92;
+                margin-bottom: 2.83203125vw;
+            }
+            p {
+                width: 32.71484375vw;
+                font-size: 1.46484375vw;
+                color: $cor1;
+                line-height: 1.438;
+                margin-bottom: 2.24609375vw;
+                text-align: justify;
+            }
+
+            picture {
+                position: absolute;
+                top: 4.58984375vw;
+                right: 9.375vw;
+                width: 40.625vw;
+                height: 37.3046875vw;
+                border-radius: 1.48828125vw;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        #titulo {
+            padding-top: 4.296875vw;
+            color: $cor1;
+            font-size: 3.125vw;
+            font-weight: bold;
+        }
+
+        #serviços {
+            margin-top: 2.34375vw;
+            display: flex;
+            flex-direction: row;
+            gap: 1.85546875vw;
+            li {
+                height: 20.1171875vw;
+                width: 19.43359375vw;
+                background-color: grey;
+                border-radius: 1.3671875vw;
+            }
+        }
+
+        #about {
+            height: 43.5546875vw;
+            position: relative;
+            color: white;
+            
+            h2 {
+                @include botao() {
+                    background-color: $cor2;
+                    position: absolute;
+                    right: 0vw;
+                    top:3.3203125vw;
+                    font-size: 3.125vw;
+                    border-radius: 0.48828125vw;
+                    padding-top: 0.87890625vw;
+                    padding-bottom: 0.48828125vw;
+                    padding-left: 0.9765625vw;
+                    padding-right: 0.9765625vw;
+                }
+            }
+
+            #paragrafo1{
+                @include paragrafos(){
+                    top:9.1796875vw;
+                    right: 0;
+                    color: white;
+                }
+            }
+
+            #paragrafo2{
+                @include paragrafos(){
+                    top:22.0703125vw;
+                    right: 0;
+                    color: white;
+                }
+            }
+            picture{
+                position: absolute;
+                bottom: -0.0171875vw;
+                width: 40.625vw;
+                height: 54.296875vw;
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
+
+        #separador{
+            position: relative;
+            left: -7.39vw;
+            height: 5.2734375vw;
+            width: 100vw;
+            background-color: $cor2;
+        }
+
+
+        #englisVersion{
+            position: relative;
+            padding-top: 3.80859375vw;
+            padding-bottom:4.6875vw;
+            height: 42.28515625vw;
+            color: white;
+            h2{
+                font-size: 2.9453125vw;
+                margin-bottom: 3.90625vw;
+            }
+            p{
+                width: 56.193359375vw;
+                height: 10.484375vw;
+                font-size: 2.0029296875vw;
+                line-height: 1.438;
+
+            }
+
+            ul{
+                margin-top: 1.7578125vw;
+                margin-left: 8.3984375vw;
+                li{
+                    font-size: 1.6494140625vw;
+                    margin-bottom: 2.1484375vw;
+                }
+            }
+
+
+            #moreData{
+                @include botao() {
+                    background-color: $cor2;
+                    position: absolute;
+                    right: 0;
+                    top:34.47265625vw;
+                    border-radius:0.48828125vw;
+                    font-size: 3.125vw;
+                }
+            }
+
+            #conclusion{
+                font-size: 2.3564453125vw;
+                font-weight: bold;
+            }
+
+
+        }
+
+
+    }
+}

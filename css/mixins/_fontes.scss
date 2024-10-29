@@ -1,0 +1,23 @@
+@mixin fontes() {
+    @media screen and (min-width: 769px) {
+        // Coloque as regras aqui se necessário para telas maiores
+    }
+
+    @media screen and (max-width: 768px) {
+        body { // Ou use o seletor correto, como uma classe ou id
+            width: 100%;
+            font-size: 3.660156vw;
+            line-height: 6vw;
+            text-align: justify;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        body { // Ou use o seletor correto, como uma classe ou id
+            width: 100%;
+            font-size: 5vw;
+            line-height: 9vw;
+            text-align: justify;
+        }
+    }
+}

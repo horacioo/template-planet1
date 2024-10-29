@@ -1,0 +1,177 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/variaveis/caminhos";
+@import "../../../css/util/breakpoints";
+@import "../../../css/mixins/button";
+
+$distnacia: 2vh;
+@mixin paragrafo() {
+    line-height: 1.5;
+    text-align: justify;
+    padding-bottom: $distnacia;
+    padding-top: $distnacia;
+    font-size: 3.6vw;
+    @content;
+}
+
+@include respond-to(mobile) {
+    main {
+
+        background-image: url('#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral-766.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 56vw;
+
+        padding-left: 8.59375vw;
+        padding-top: 5.859375vw;
+        padding-right: 8.59375vw;
+        padding-bottom: 4.8828125vw;
+        display: flex;
+        flex-direction: column;
+        //gap: 3.515625vw;
+        position: relative;
+        @include fontes();
+        color: $cor1;
+
+        #separador {
+            height: 5vw;
+            background-color: $cor2;
+            margin-bottom: 2vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            padding-top: 3vw;
+            padding-bottom: 3vw;
+        }
+
+        header {
+            h1 {
+                padding: 2vw;
+            }
+            p {
+                @include paragrafo() {
+                }
+            }
+            picture {
+                position: relative;
+                width: 70%;
+                left: 50%;
+                transform: translateX(-50%);
+                display: block;
+                overflow: hidden;
+                border-radius: 0.48828125vw;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .buttom {
+            @include botao() {
+                background-color: $cor1;
+                font-size: 4vw;
+                margin: 0vw;
+                gap: 0;
+                padding: 4vw;
+            }
+        }
+
+        .buttom2 {
+            @include botao() {
+                background-color: $cor2;
+                font-size: 4vw;
+                margin: 0vw;
+                gap: 0;
+                padding: 4vw;
+            }
+        }
+
+        #serviços {
+            li {
+                height: 20vw;
+                background-color: white;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                border: 1px solid $cor1;
+                justify-content: center;
+                text-transform: capitalize;
+                font-size: 4vw;
+            }
+        }
+
+        #paragrafo1,
+        #paragrafo2 {
+            @include paragrafo() {
+                color: white;
+            }
+        }
+
+
+
+        #about {
+
+            h2,h3,h4{
+                color: white;
+            }
+
+            picture {
+                width: 90%;
+                max-width: 90%;
+                display: block;
+                position: relative;
+                height: 32.296875vw;
+                img {
+                    max-width: 100%;
+                    height: 100%;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+
+
+
+        #englisVersion {
+            h2,h3,h4{
+                color: white;
+            }
+            p {
+                @include paragrafo() {
+                    color: white;
+                }
+            }
+
+            ul {
+                margin-left: 5vh;
+                li {
+                    font-size: 4.4vw;
+                    line-height: 1.4;
+                    list-style: circle;
+                    margin-bottom: 2vh;
+                    color: white;
+                }
+            }
+
+            #conclusion{
+                font-size: 5.37109375vw; 
+                color: white;
+            }
+
+            #moreData{
+                @include botao(){
+                    font-size: 4.8828125vw;
+                    background-color: adjust-hue($cor2,-10deg);
+                    margin-bottom: 1.953125vw;
+                }
+            }
+        }
+    }
+}

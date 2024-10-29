@@ -1,0 +1,33 @@
+@import "../cores/cores";
+
+@mixin botao() {
+    @media screen and (min-width: 501px) {
+       padding-left:0.78125vw;
+       padding-top:0.68359375vw;
+       padding-right:0.78125vw;
+       padding-bottom:0.68359375vw;
+       color: white;
+       background-color: $cor1;
+       font-size: 1.171875vw;
+       margin-right: 0;
+       display: inline-block;
+       text-transform: capitalize;
+        @content
+    }
+
+    @media screen and (max-width: 500.12px) {
+        background-color: $cor1;
+        color: white;
+        padding: 4vw;
+        font-size: 1.66015625vw;
+        position: relative;
+        z-index: 30;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        border:none;
+        margin-bottom: 3vh;
+        text-transform: capitalize;
+        @content
+    }
+}
