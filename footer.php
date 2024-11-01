@@ -16,34 +16,82 @@
 </script>
 
 
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------aqui eu descubro se a div é horizontal ou vertical----------------------->
+<script>
+
+document.addEventListener("DOMContentLoaded", updateOrientationClasses);
+window.addEventListener("resize", updateOrientationClasses);
+
+function updateOrientationClasses() {
+    const gridItems = document.querySelectorAll('.grid-item');
+
+    gridItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+
+        // Remove classes antigas, se houver
+        item.classList.remove('horizontal', 'vertical');
+
+        // Define a nova classe com base na proporção
+        if (width > height) {
+            item.classList.add('horizontal');
+        } else {
+            item.classList.add('vertical');
+        }
+    });
+}
+</script>
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
 
 
 
-<!-------aqui é o balãozinho do blog----------->
+
+
+
+
+
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const triggerDivs = document.querySelectorAll('.imagens');
-    const flipDiv = document.querySelector('.slideFake');
-    const segundoElement = document.getElementById('segundo'); // Seleciona o elemento de ID 'segundo'
+    const postsContainer = document.getElementById('postsDoBlog');
+    const posts = postsContainer.querySelectorAll('.item');
 
-    triggerDivs.forEach(triggerDiv => {
-        const infoContent = triggerDiv.querySelector('.info'); // Seleciona a div com a classe 'info' dentro da imagem
-
-        triggerDiv.addEventListener('mouseenter', function() {
-            console.log("Mouse entrou na imagem:");
-            flipDiv.classList.add('mostrar-segundo'); // Adiciona a classe para mostrar a div
-            segundoElement.innerHTML = infoContent.innerHTML; // Coloca o conteúdo HTML no elemento 'segundo'
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona a classe 'visible' gradualmente a cada post
+                posts.forEach((post, index) => {
+                    setTimeout(() => {
+                        post.classList.add('visible');
+                    }, index * 200); // Atraso progressivo de 200ms para cada post
+                });
+                observer.unobserve(postsContainer); // Para de observar depois que a animação acontece
+            }
         });
+    }, { threshold: 0.5 });
 
-        triggerDiv.addEventListener('mouseleave', function() {
-            console.log("Mouse saiu da imagem:");
-            flipDiv.classList.remove('mostrar-segundo'); // Remove a classe para esconder a div
-            segundoElement.innerHTML = ''; // Limpa o conteúdo do elemento 'segundo' quando o mouse sai
-        });
-    });
+    observer.observe(postsContainer);
 });
-
 </script>
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+
+
+
+
+
+
+
 
 
 

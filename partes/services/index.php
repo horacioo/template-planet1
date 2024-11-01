@@ -30,21 +30,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div id="blog">
-
-
-        <section>
-            <div id="bloco1">
+        <section id="postsDoBlog" class="container ">
+            <div id="bloco1" class="item grid-item">
                 <h2>nosso blog</h2>
-                <div class="slideFake">
-                    <p id="primeiro">Conheça nosso blog, veja algum temas importantes ligados ao mundo da tecnologia, novidades ligadas a criação de sites profissionais, informações no mundo web, aplicativos e muitas notícias da área!</p>
-                    <p id="segundo"></p>
-                </div>
+                <p id="primeiro">Conheça nosso blog, veja algum temas importantes ligados ao mundo da tecnologia, novidades ligadas a criação de sites profissionais, informações no mundo web, aplicativos e muitas notícias da área!</p>
             </div>
 
             <?php
             $args = array(
-                'posts_per_page' => 13, // Define o limite para os 30 posts mais recentes
+                'posts_per_page' => 30, // Define o limite para os 30 posts mais recentes
                 'orderby' => 'date',    // Ordena por data
                 'order' => 'DESC'       // Do mais recente para o mais antigo
             );
@@ -57,7 +79,8 @@
                     $img = get_the_post_thumbnail_url($id);
 
                     /***********************************************/
-                    $imagem_path = ImagemPath($id);/******esse id é o id do post******/
+                    $imagem_path = ImagemPath($id);
+                    /******esse id é o id do post******/
                     $tamanhos = [
                         ['largura' => 150, 'altura' => 150,   'qualidade' => 90],
                         ['largura' => 350, 'altura' => 125,   'qualidade' => 80],
@@ -66,32 +89,51 @@
                     ];
                     $imagens = reduzirImagem($imagem_path, $tamanhos);
                     /***********************************************/
-
-
             ?>
-                    <?php if ($linha == 1): ?>
-                            <div class="imagens" id="post<?php echo $linha; ?>" style="background-image: url('<?php echo $imagens['urls']['350x350']; ?>');">
-                    <?php elseif ($linha==2): ?>
-                            <div class="imagens" id="post<?php echo $linha; ?>" style="background-image: url('<?php echo $imagens['urls']['350x125']; ?>');">
-                    <?php elseif ($linha==3): ?>
-                            <div class="imagens" id="post<?php echo $linha; ?>" style="background-image: url('<?php echo $imagens['urls']['150x300']; ?>');">
-                        <?php else: ?>
-                            <div class="imagens" id="post<?php echo $linha; ?>" style="background-image: url('<?php echo $imagens['urls']['150x150']; ?>');">
-                    <?php endif ?>
 
 
-                            <span class="info">
-                                <picture><img src="<?php echo $imagens['urls']['150x150']; ?>" alt='imagem' width="20" height="20"></picture>
-                                <?php echo get_the_excerpt($id); ?>
-                            </span>
+                    <div class="imagens item grid-item" id="post<?php echo $linha; ?>" style="">
+                        <!------------------------------------------->
+                        <div class="card">
+
+                            <picture><img src="<?php echo $imagens['urls']['350x350']; ?>'"></picture>
+
+                            <h2 class="titulo">
+                                <?php echo get_the_title($id); ?>
+                            </h2>
+
+                            <div class="excerpt">
+                                <?php echo $linha; ?>
+                                <?php echo substr(get_the_excerpt($id), 0, 120); ?>
                             </div>
-                    <?php $linha++;
+
+                            <div class="date">
+                                <?php echo get_the_date("d/M"); ?>
+                            </div>
+                        </div>
+                        <!------------------------------------------->
+
+                    </div>
+
+
+            <?php $linha++;
                 endwhile;
             endif; ?>
         </section>
-
-
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

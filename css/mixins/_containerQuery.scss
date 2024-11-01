@@ -1,0 +1,165 @@
+.item {
+    opacity: 0;
+    transform: translateY(20px); /* Pequeno deslocamento inicial */
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+#postsDoBlog > .item:nth-child(n + 2) {
+    &:hover {
+        transform: scale(1.1);
+        z-index: 3000000000;
+        box-shadow: 0.09765625vw 0.09765625vw 2.09765625vw black;
+    }
+}
+
+
+
+
+
+
+.card {
+    position: relative;
+    height: 100%;
+    picture {
+        position: absolute;
+    }
+    .date {
+        position: absolute;
+    }
+    .titulo {
+        position: absolute;
+        background-color: transparent !important;
+    }
+    .excerpt {
+        position: absolute;
+        background-color: transparent !important;
+    }
+}
+
+/****************************************************************************************/
+.horizontal {
+    .card {
+        picture {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            img {
+                position: absolute;
+                width: 105%;
+                height: auto;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                filter: saturate(0.1);
+            }
+            &:hover {
+                img {
+                    filter: saturate(1);
+                }
+            }
+        }
+        .date {
+            background-color: $cor2;
+            padding: 1vw;
+            color: white;
+            right: 1vw;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            border-radius: 0.5vw;
+            font-weight: bold;
+        }
+        .titulo {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: lighten($cor1, 0) !important;
+            padding: 0.7vw !important;
+            border-radius: 0 !important;
+            font-size: 1vw !important;
+        }
+        .excerpt {
+            bottom: 0;
+            left: 0;
+            font-size: 0.9vw;
+            background-color: $cor1 !important;
+            color: white;
+            line-height: 1.4;
+            padding: 0.6vw;
+            width: 100%;
+            text-align: justify;
+        }
+    }
+}
+/****************************************************************************************/
+
+/****************************************************************************************/
+.vertical {
+    .card {
+        picture {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            img {
+                position: absolute;
+                height: 105%;
+                width: auto;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                filter: saturate(0.1);
+            }
+            &:hover {
+                img {
+                    filter: saturate(1);
+                }
+            }
+        }
+        .date {
+            background-color: $cor2;
+            padding: 1vw;
+            color: white;
+            z-index: 30;
+            transform: rotate(90deg);
+            right: -1vw;
+            top: 50%;
+            border-radius: 0.5vw;
+            font-weight: bold;
+        }
+        .titulo {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: lighten($cor1, 0) !important;
+            padding: 0.7vw !important;
+            border-radius: 0 !important;
+            font-size: 1vw !important;
+        }
+        .excerpt {
+            bottom: 0;
+            left: 0;
+            font-size: 0.9vw;
+            background-color: $cor1 !important;
+            color: white;
+            line-height: 1.4;
+            padding: 0.6vw;
+            width: 100%;
+            text-align: justify;
+        }
+    }
+}
+/****************************************************************************************/
