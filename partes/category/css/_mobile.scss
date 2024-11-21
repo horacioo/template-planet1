@@ -4,48 +4,91 @@
 @import "../../../css/mixins/button";
 @import "../../../css/util/_breakpoints";
 @import "../../../css/mixins/button";
+@import "./../../menu/css/menuInterno/mobile";
 
 @mixin descricoes() {
     margin-top: 5vh;
     line-height: 2;
     text-align: justify;
     @include fontes();
-    img{ 
-        max-width: 40%; height: auto; 
-        border:1px solid $cor1;
-        margin:2vw;
+    color: $cor1;
+
+
+    img {
+        //max-width: 40%;
+        height: auto;
+        border: 1px solid $cor1;
+        margin: 2vw;
         border-radius: 2vw;
     }
 }
 
 @include respond-to(mobile) {
-    body{
-        width:93vw;
+    body {
+        // border: 1px solid red;
+        width: 98.89vw;
+        position: relative;
+
     }
+
+
+    /****************************************************/
+    /****************************************************/
+    /****************************************************/
+    #thumbCategory {    grid-area: thumb; }
+    #posts{grid-area:posts ;}
+    h1{ grid-area: paragrafo;}
+    #descricao{grid-area: desc1;}
+    #descricao2{grid-area: desc2;}
+    .pai{grid-area: pai;}
+    /****************************************************/
+    /****************************************************/
+    /****************************************************/
+    
+
     #categorias {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "paragrafo"
+            "desc1"
+            "thumb"
+            "posts"
+            "desc2"
+            "pai";
+        
+
+
         @include fontes();
-   
-        width: 50vw;
+
+        h1 {
+            color: $cor1;
+            text-align: center;
+        }
+
+        width: 99%;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        margin-top: 6.640625vw;
-           margin-left: 2.9296875vw;
-           margin-right: 2.9296875vw;
-        margin-bottom: 6.640625vw;
-        color: $cor1;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 0.9765625vw;
-        grid-template-areas:
-            "paragrafo "
-            "thumb "
-            "texto"
-            "texto2"
-            "posts ";
+        //border: 1px solid orange;
 
         .pai {
-            @include botao();
+            
+            //@include botao();
+            font-size: 12vw;
+            width: 50%;
+            padding: 3vw;
+            font-size: 4.3vw;
+            position: sticky;
+            bottom: 3vw;
+            background-color: $cor1;
+            color: white!important;
+            border-radius: 0.48828125vw;
+            &::before{
+                content: 'Categoria pai:  ';
+                padding-left: 5px;
+            }
         }
 
         .alignleft {
@@ -63,24 +106,45 @@
         h1 {
             margin-top: 7vw;
             margin-bottom: 7vw;
-            grid-area: paragrafo;
+            
         }
 
-        #descricao {
-            grid-area: texto;
-            @include descricoes();
-        }
 
+    
+        
+        #descricao,
         #descricao2 {
-            grid-area: texto2;
             @include descricoes();
+            display: block;
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+            margin-bottom: 3vw;
+            picture{
+                display: block;
+                padding: 0;
+                height: 60vh;
+                img{
+                    border: none;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin: 0;
+                    height: 100%;
+                    width: auto;
+                    max-width: auto; 
+                }
+            }
         }
+
+       
 
         #thumbCategory {
             max-width: 99%;
             height: auto;
             display: block;
-            grid-area: thumb;
+        
 
             img {
                 width: 100%;
@@ -90,40 +154,57 @@
             }
         }
 
+        
         #posts {
-            grid-area: posts;
-            margin-top: 2vw;
-            //border:1px solid $cor1;
-            width: 90vw;
-            padding: 1vw;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 0.9765625vw;
-            border-radius: 0.58828125vw;
+            ///border: 2px solid rgb(0, 134, 89);
+            width: 90%;
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            
 
             article {
-                gap: 2.9765625vw;
                 border: 1px solid $cor1;
-                border-radius: 0.48828125vw;
-                padding: 1vw;
+                margin-bottom: 2vw;
+                height: auto;
+                overflow: auto;
 
                 .entry-content {
+                    background-color: lighten(grey, 45);
                     display: flex;
+                    gap: 1.2vw;
                     flex-direction: column;
-
                     a {
                         color: $cor1;
                     }
+                    text-align: center;
+                    font-weight: 100;
+                    line-height: 1.7;
+
+                    width: 100%;
+
+                    p {
+                        margin: 1vw;
+                    }
                     picture {
+                        display: block;
                         width: 100%;
+                        height: 25vh;
+                        overflow: hidden;
+                        position: relative; 
                         img {
-                            width: 100%;
+                            position: absolute;
+                            width: 110%;
                             height: auto;
-                            border-radius: 0.38828125vw;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
                         }
                     }
                 }
             }
+            
         }
     }
 }

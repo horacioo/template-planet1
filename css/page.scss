@@ -1,15 +1,22 @@
 @import "./reset/reset";
-@import "../partes/menu/css/style";
-@import "../partes/pagina/css/style"; 
-@import "../partes/footer/css/style"; 
-
-/*
+@import "../partes/pages/css/style"; 
 
 
-@import "../partes/header/css/style";
 
 
-//@import "../partes/contatos_/css/style";
 
 
-*/ 
+@keyframes backgroundInfo{
+    0%   { background-color: $cor1;  }
+    50% { background-color: lighten($cor1,10%); }
+    100% { background-color: $cor1; }
+}
+
+
+
+@keyframes  lateral{
+    0%   {border-right: 4px solid $cor3;}
+    25%  {border-bottom: 4px solid $cor3}
+    50%  {border-left: 4px solid $cor3}
+    100% {border-top: 4px solid $cor3}
+}

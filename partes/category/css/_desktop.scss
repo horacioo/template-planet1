@@ -1,6 +1,7 @@
 @import "../../../css/mixins/heights";
 @import "../../../css/util/_breakpoints";
 @import "../../../css/mixins/button";
+@import "./../../menu/css/menuInterno/desktop";
 
 @mixin descricoes() {
     line-height: 2;
@@ -10,122 +11,180 @@
 
 @include respond-to(bigger) {
     #categorias {
-        border: 1px solid $cor1;
-        width: 94%;
-        margin-top: 6.640625vw;
-        margin-left: 2.9296875vw;
-        margin-right: 2.9296875vw;
-        margin-bottom: 6.640625vw;
-        color: $cor1;
-        padding: 2vw;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5fr);
         grid-template-rows: auto;
-        gap: 0.9765625vw;
-        grid-template-areas:
-            "paragrafo paragrafo paragrafo paragrafo paragrafo"
-            "thumb thumb texto texto texto"
-            "texto2 texto2 texto2 texto2 texto2 "
-            "posts posts posts posts posts";
+      
 
-        .pai {
-            @include botao();
+       
+        h1 {
+            color: $cor1;
+            padding: 1.6vw;
+            font-size: 2.953125vw;
+            grid-column: 1/5;
         }
 
-        .alignleft {
-            float: left;
-            margin-right: 0.5vw;
-            border-radius: 0.9765625vw;
-        }
+        margin-left: 6.765625vw;
+        margin-right: 6.765625vw;
 
         .alignright {
+            margin-left: 0.7vw;
             float: right;
-            margin-right: 0.5vw;
-            border-radius: 0.9765625vw;
+            border: 1px solid $cor1;
+        }
+        .alignleft {
+            margin-right: 0.7vw;
+            float: left;
+            border: 1px solid $cor1;
         }
 
-        h1 {
-            margin-bottom: 2vw;
-            font-size: 1.5625vw;
-            grid-area: paragrafo;
+        #descricao,
+        #descricao2 {
+            display: flex;
+            position: relative;
+            height: auto;
+            overflow: visible;
+            line-height: 1.75;
+            color: $cor1;
+            text-align: justify;
+            font-size: 1.1015625vw;
+            align-items: center;
+            div {
+                width: 50%;
+                padding: 1.6vw;
+                flex-grow: 1; 
+                p {
+                    vertical-align: auto;
+                    max-width: 95%;
+                    margin-bottom: 1.753125vw;
+                }
+            }
+
+            /*****************************************************************/
+            picture {
+                margin: 1%;
+                display: block;
+                overflow: hidden;
+                position: sticky;
+                //border: 1px solid red;
+                right: -0vw;
+                width:30.296875vw;
+                height: 33.828125vw;
+              
+                img {
+                    height: 100%;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            /*****************************************************************/
         }
 
         #descricao {
-            grid-area: texto;
-            @include descricoes();
+            grid-column: 1/5;
+            grid-row: 2/2;
         }
-
         #descricao2 {
-            grid-area: texto2;
-            @include descricoes();
+            grid-column: 1/5;
+            grid-row: 8/10;
         }
 
-        #thumbCategory {
-            width: 38.28125vw;
-            height: auto;
-            display: block;
-            grid-area: thumb;
-            img {
-                width: 100%;
-                height: auto;
-                border-radius: 1vw;
-                border: 1px solid $cor1;
-            }
-        }
-
+        /*************************************************************/
+        /*************************************************************/
+        /*************************************************************/
+        /*************************************************************/
         #posts {
-            grid-area: posts;
-            margin-top: 2vw;
-            //border:1px solid $cor1;
-            width: 100%;
-            padding: 1vw;
+            grid-column: 1/5;
+            grid-row: 6/8;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.9765625vw;
-            border-radius: 0.58828125vw;
+            grid-template-columns: repeat(
+                3,
+                1fr
+            ); //grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr)); /* Ajusta a largura dos artigos */
+            gap: 15px; /* Espaçamento entre os itens */
+            margin-top: 1.5vw;
 
             article {
-                gap: 2.9765625vw;
                 border: 1px solid $cor1;
+                display: block; /* Garantir que cada artigo ocupe o espaço do grid */
+                height: auto;
+                overflow: auto;
+                padding-bottom: 1vw;
                 border-radius: 0.48828125vw;
-                padding: 1vw;
+                background-color: lighten(grey, 45);
 
-
-                p{
-                    font-size: 0.9765625vw;
-                    line-height: 1.5;
+                h2 {
+                    font-size: 2.44140625vw;
                 }
 
-                .entry-content {
-                    display: flex;
-                    flex-direction: column;
-                    
-                    a {
-                        color: $cor1;
-                    }
+                a {
+                    margin-bottom: 0.7vw;
+                    display: block;
+                    line-height: 1.5;
+                    padding-left: 1vw;
+                    padding-right: 1vw;
+                    color: $cor1;
+                }
 
-                    h2{
-                        margin-top:1vw;
-                        margin-bottom:1vw;
-                    }
+                .resumo{
+                    font-weight: 300;
+                }
 
-                    p{
-                        font-size: 0.87890625vw;
-                    }
-
-
-                    picture {
-                        display: block;
-                        width: 100%;
-                        img {
-                            border:1px solid $cor1;
-                            width: 100%;
-                            height: auto;
-                            border-radius: 0.38828125vw;
-                        }
+                picture {
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    height: 13.671875vw;
+                    margin-bottom: 1vw;
+              
+                    img {
+                        width: 120%;
+                        height: fit-content;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
                     }
                 }
             }
         }
+        /*************************************************************/
+        /*************************************************************/
+        /*************************************************************/
+        /*************************************************************/
+        /*************************************************************/
+
+        .pai {
+            border: 1px solid rgb(0, 149, 169);
+            grid-row: 10/11;
+            grid-column: 1/1;
+            font-size: 1.953125vw;
+            position: relative;
+            padding:0.623125vw ;
+            display: inline-block;
+            padding-right: 1.953125vw;
+            color: $cor1;
+            text-transform: capitalize;
+            margin-left: 1vw;
+            background-color: lighten($cor1,70);
+            margin-bottom: 1vw;
+            border-radius: 0.38828125vw;
+            overflow: hidden;
+            &:after{
+                content: ".";
+                color: $cor2;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                height: 100%;
+                width: 20px;
+                background-color: $cor2;
+            }
+        }
+         
+        /*************************************************************/
+        /*************************************************************/
     }
 }

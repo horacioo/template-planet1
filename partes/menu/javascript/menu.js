@@ -35,4 +35,5 @@ jQuery(document).ready(function () {
   function EscondeElementos() {
     jQuery("#fundao").hide();
     jQuery("nav").hide();
-  }
+  } 
+  

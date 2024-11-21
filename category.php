@@ -1,8 +1,15 @@
 <?php get_header('categoria');  ?>
 
-<?php
-get_template_part('partes/menu/index');
-?>
+
+
+
+
+<img id="icon" alt="icone de menu - corretora de seguros em santos" src="<?php echo tema ?>/partes/menu/imagens/menu_icon.svg">
+<div id="fundao"></div>
+<nav class='menuTopo'>
+    <?php wp_nav_menu() ?>
+</nav>
+
 
 
 <!----------------------------------------------------------->

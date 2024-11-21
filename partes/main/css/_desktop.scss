@@ -19,7 +19,7 @@
     font-size: 1.66015625vw;
     line-height: 1.438;
     margin-bottom:3.515625vw;
-    color: $cor1;
+    //color: $cor1;
     text-align: right;
     @content
 }
@@ -155,8 +155,9 @@
             position: relative;
             left: -7.39vw;
             height: 5.2734375vw;
-            width: 100vw;
+            width: 99.8vw;
             background-color: $cor2;
+            border: 1;
         }
 
 

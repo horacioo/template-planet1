@@ -1,62 +1,76 @@
-<?php get_header('page');  ?>
+<?php get_header('page'); ?>
 
-<?php get_template_part('partes/menu/index'); ?>
+<?php $id = get_the_ID() ?>
 
-<?php $idDaCategoria = null; ?>
+<header>
+    <h1><?php echo get_the_title() ?></h1>
+</header>
 
-<main id="page">
-    <?php get_template_part('partes/pagina/index'); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img id="icon" alt="icone de menu - corretora de seguros em santos" src="<?php echo tema ?>/partes/menu/imagens/menu_icon.svg">
+<div id="fundao"></div>
+
+
+<nav>
+    <?php wp_nav_menu() ?>
+</nav>
+
+<main>
+<div class='open'>Tela Cheia</div>
+
+    <header>
+        <h2> <?php echo get_the_excerpt(); ?> </h2>
+        <?php
+
+        $idImagem = $idImagem = get_post_thumbnail_id($id);
+        $image_path = get_attached_file($idImagem);
+
+
+        $tamanhos = [
+            ['largura' => 1029, 'altura' => 257,   'qualidade' => 50]
+        ];
+        $imagens = reduzirImagem($image_path, $tamanhos);
+
+
+        ?>
+        <picture><img src="<?php echo $imagens['urls']['1029x257']; ?>" alt="imagem que representa o  texto"></picture>
+    </header>
+
+
+    <span>
+        <?php
+        $conteudo  = get_the_content();
+        $categoria = get_the_category( $id );
+
+       
+
+        echo  inserir_html_no_meio_do_conteudo($conteudo, $categoria);
+        ?>
+    </span>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <aside>
-
-    <?php
-
-
-
-   // $current_category = get_queried_object_id();
-    $category_y_id = get_queried_object_id();
-    $subcategories = get_term_children($category_y_id, 'category');
-    $current_post_id = get_the_ID();
-
-    $xx = get_the_category($id);
-    $current_category = $xx[0]->term_id;
-    $args = array(
-        'cat' => $current_category,
-        'posts_per_page' => 30,
-        'paged' => get_query_var('paged') ? get_query_var('paged') : 1 ,// Paginação
-        'post__not_in' => array($current_post_id), // Exclui o post atual
-    );
-    $query = new WP_Query($args);
-    while ($query->have_posts()) : $query->the_post(); ?>
-        <section>
-            <?php $img = get_the_post_thumbnail_url($id, 'thumbnail') ?>
-            <?php if ($img): ?><img src="<?php echo "$img"; ?>" alt="teste"> <?php endif; ?>
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?>
-        </section>
-    <?php endwhile; ?>
+    <?php if (is_active_sidebar('sidebar-principal')) : ?>
+        <aside id="sidebar" class="sidebar">
+            <?php dynamic_sidebar('sidebar-principal'); ?>
+        </aside>
+    <?php endif; ?>
 </aside>
 
 
 
+<?php   get_template_part( "/partes/rodape/index" ); ?>
 
 
 
@@ -64,5 +78,7 @@
 
 
 
-<?php get_template_part('partes/contatos_/index'); ?>
+
+
+
 <?php get_footer(); ?>

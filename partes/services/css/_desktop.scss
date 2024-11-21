@@ -8,17 +8,18 @@
 @import "../../../css/mixins/containerQuery";
 @import "../../../css/mixins/blog/all";
 
+@import "../../../css/variaveis/caminhos"; 
+
 .screen-reader-text {
     width: 1px;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 @mixin paragrafos() {
     height: auto;
     font-size: 1.66015625vw;
     line-height: 1.438;
-    margin-bottom: 3.515625vw;
-    color: $cor1;
+    margin-bottom: 3.515625vw; 
     @content;
 }
 
@@ -28,11 +29,13 @@
         padding-right: 7.51953125vw;
         padding-top: 8.3984375vw;
         padding-bottom: 7.51953125vw;
-
         position: relative;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position-y: 14vw;
 
+        background-image: url("#{$url}/wp-content/themes/planet1-newdesign/partes/services/imagens/fundaoBottom.svg");
+ 
         #portifolio {
             padding-bottom: 6.25vw;
 
@@ -44,7 +47,11 @@
             p {
                 width: 37.20703125vw;
                 @include paragrafos() {
+                    color: $cor1;
                     text-align: justify;
+                    //border:1px solid white;
+                    ///background-color: rgba(255, 255, 255, 0.646);
+                    //padding: 1vw;
                 }
             }
 
@@ -108,6 +115,69 @@
                         }
                     }
                 }
+            }
+        }
+
+
+       
+        #Contato {
+            position: relative;
+            min-height: 42.3828125vw;
+
+            overflow: visible;
+            padding-top: 6.8359375vw;
+            padding-bottom: 7.32421875vw;
+            picture {
+                position: absolute;
+                left: 4.98046875vw;
+                top: 2.83203125vw;
+                width: 29.19921875vw;
+                height: 34.86328125vw;
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            #texto {
+                h2 {
+                    color: $cor1;
+                    font-size: 3.125vw;
+                    margin-bottom: 16px;
+                }
+                color: $cor1;
+                position: absolute;
+                display: block;
+                width: 32.71484375vw;
+                height: 24.21875vw;
+                font-size: 1.66015625vw;
+                text-align: justify;
+                left: 35.05859375vw;
+                line-height: 1.438;
+            }
+
+            #form1 {
+                position: absolute;
+                left: 70.8984375vw;
+                top: 4.7119140625vw;
+                width: 11.686197916667vh;
+                height: auto;
+            }
+
+            #form2 {
+                position: absolute;
+                left: 84.9609375vw;
+                top: 13.96484375vw;
+                width: 11.686197916667vh;
+                height: auto;
+            }
+
+            #form3 {
+                position: absolute;
+                left: 73.4375vw;
+                bottom: 9.765625vw;
+                width: 11.686197916667vh;
+                height: auto;
             }
         }
     }

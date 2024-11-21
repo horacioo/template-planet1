@@ -13,11 +13,11 @@
 
 @include respond-to(desktop) {
     #blog {
-        //border: 1px solid red;
+       // border: 1px solid red;
         height: auto;
-        padding-bottom: 1.029296875vw; //padding-bottom: 5.029296875vw;
+        //padding-bottom: 0.029296875vw; //padding-bottom: 5.029296875vw;
         padding-top: 6.029296875vw;
-        //gap: 0.28828125vw;
+        //border: 1px solid rgb(0, 17, 255);
 
         .info {
             display: none;
@@ -28,6 +28,7 @@
             grid-template-columns: repeat(15, 1fr); /* 5 colunas de tamanho igual */
             grid-template-rows: repeat(11, minmax(0, 8.7890625vw)); /* 2 linhas de tamanho igual */
             gap: 0.08359375vw;
+            padding-bottom: 2vw;
 
             #bloco1 {
                 grid-column: 1/5;
@@ -36,6 +37,7 @@
                 width: 95%;
                 p {
                     @include paragrafos() {
+                        color: white;
                         text-align: justify;
                     }
                 }
@@ -64,7 +66,7 @@
 
             #post5 {
                 grid-column: 14/16;
-                grid-row: 4/8;
+                grid-row: 5/8;
             }
 
             #post6 {
@@ -79,7 +81,7 @@
 
             #post8 {
                 grid-column: 1/5;
-                grid-row: 7/12;
+                grid-row: 7/11;
             }
 
             #post9 {
@@ -89,7 +91,7 @@
 
             #post10 {
                 grid-column: 14/16;
-                grid-row: 8/12;
+                grid-row: 9/12;
             }
 
             #post11 {
@@ -112,7 +114,8 @@
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                overflow: hidden; //overflow: visible;
+                //overflow: hidden; 
+                overflow: visible;
                 ///border: 0.0298046875vw solid $cor1;
 
                 h2 {

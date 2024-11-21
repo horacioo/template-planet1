@@ -10,8 +10,8 @@ $subcategories = get_term_children($category_y_id, 'category');
 
 $args = array(
     'cat' => $current_category,
-    'posts_per_page' => 3,
-    'category__not_in' => $subcategories, 
+    'posts_per_page' => 9,
+    'category__not_in' => $subcategories,
     'paged' => get_query_var('paged') ? get_query_var('paged') : 1 // Paginação
 );
 $query = new WP_Query($args);
@@ -24,6 +24,36 @@ $query = new WP_Query($args);
 $thumb = get_field('fotoscategory', 'category_' . $current_category);
 $descricao = get_field('descricao', 'category_' . $current_category);
 $descricao2 = get_field('descricao2', 'category_' . $current_category);
+/***********************************************************************************/
+
+
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+$desc1Img = get_field('imgdesc', 'category_' . $current_category);
+if ($desc1Img) {
+    $imagemContent = "<picture><img src='" . $desc1Img . "' alt='teste' ></picture>";
+}
+else{
+    $imagemContent = "";
+}
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+/************************************************************************************************/
+
+$desc1Img2 = get_field('imgdesc2', 'category_' . $current_category);
+if ($desc1Img2) {
+    $imagemContent2 = "<picture><img src='" . $desc1Img2 . "' alt='teste' ></picture>";
+}
+else{ $imagemContent2 = "";}
+
+/***********************************************************************************/
+
 
 $path = get_attached_file($thumb);
 
@@ -32,24 +62,19 @@ $tamanhos = [
     ['largura' => 400, 'altura' => 350,   'qualidade' => 80],
     // ['largura' => 320, 'altura' => 300,   'qualidade' => 80],
 ];
-$imagensxx = reduzirImagem($path, $tamanhos);
+//$imagensxx = reduzirImagem($path, $tamanhos);
 
 
 
-echo "
-       <picture id='thumbCategory'>
-                            <img alt='imagem do produto' width='219' height='134' src=" . $imagensxx['urls']['392x250'] . ">         
-      </picture>
-      
-      ";
 
 if (isset($descricao)) {
-    echo "<span id='descricao'>" . $descricao . "</span>";
-}else{ echo "<span id='descricao'></span>"; } 
-if (isset($descricao2)) {
-    echo "<span id='descricao2'>" . $descricao2 . "</span>";
+    echo "<span id='descricao'><div>" . $descricao . "</div>  " . $imagemContent . "  </span>";
 }
-else{ echo "<span id='descricao2'></span>"; } 
+if (isset($descricao2)) {
+    echo "<span id='descricao2'><div>" . $descricao2 . "</div>  $imagemContent2 </span>";
+} else {
+    echo "<span id='descricao2'></span>";
+}
 /***********************************************************************************/
 
 
@@ -124,8 +149,8 @@ if ($query->have_posts()) :
                 </p>
                 <!-------------------------->
                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
-         
+                <p><a class="resumo" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
+
             </div>
 
         </article>
@@ -186,6 +211,10 @@ if ($current_category->parent) {
     echo $parent_category->name;
     echo '</a>';
 } else {
-   // echo 'Esta categoria não possui um pai.';
+    // echo 'Esta categoria não possui um pai.';
 }
 ?>
+
+
+<div class='open'>Tela inteira</div>
+

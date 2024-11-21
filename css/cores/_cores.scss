@@ -1,5 +1,5 @@
 $cor1: #00687D;//$cor1:#289EA1;
 $cor2: #D28746;
 
-$cor3:#9EA9B8;
-$cor4: #FFE691;//#8F8168;
+$cor3:adjust-hue($cor1,-10deg);
+$cor4:adjust-hue($cor2,-10deg);

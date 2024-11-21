@@ -16,29 +16,27 @@
     ?>
 
 
-
-
     <!--------------------------------------------------------------->
     <!--------------------------------------------------------------->
     <!--------------------------------------------------------------->
     <style>
-        @font-face {font-family: "Inter";  src: url("<?php echo tema ?>/fontes/Inter-Regular.otf") format('opentype'); } *{  font-family: 'Inter';}
+        @font-face {
+            font-family: "Inter";
+            src: url("<?php echo tema; ?>/fontes/LeagueSpartan-Regular.ttf") format('truetype');
+        }
+
+        * {
+            font-family: 'Inter';
+        }
     </style>
     <!--------------------------------------------------------------->
     <!--------------------------------------------------------------->
     <!--------------------------------------------------------------->
 
-    <!--<link rel="stylesheet" href="<?php echo tema; ?>/css/slick/slick.css" media="all">-->
-    <style>
-        <?php echo file_get_contents(tema . "/css/category.css"); ?>
-    </style>
+    <link rel="stylesheet" href="http://localhost/grafica2/wp-content/themes/planet1-newDesign/css/category.css" media="all">
 
     <?php wp_head(); ?>
 
-    <!--<link rel="preload" href="<?php echo tema; ?>/partes/slideProdutos/imagens/img-320.avif" as="image">
-    <link rel="preload" href="<?php echo tema; ?>/partes/slideProdutos/imagens/img-375.avif" as="image">
-    <link rel="preload" href="<?php echo tema; ?>/partes/slideProdutos/imagens/img-425.avif" as="image">
-    <link rel="preload" href="<?php echo tema; ?>/partes/slideProdutos/imagens/imagem1.avif" as="image">-->
 
 </head>
 
