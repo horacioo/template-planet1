@@ -6,9 +6,9 @@
         on onon oasn donsod nonsod noads on odonsod nonsod noads on onon oasn donsod nonsod noads on onon 
         </p>
         <div id='icones'>
-        <img width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon1.svg">
-        <img width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon2.svg">
-        <img width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon3.svg">
+        <img class='move' width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon1.svg">
+        <img class='move' width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon2.svg">
+        <img class='move' width="20" height="20" alt="imagemde uma  operadora de telemarketing  - seguros em santos" src="<?php echo tema?>/partes/contatos/imagens/icon3.svg">
         </div>
     </div>
     <!-------------------------------->

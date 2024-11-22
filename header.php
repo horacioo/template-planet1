@@ -36,6 +36,7 @@
     <!--------------------------------------------------------------->
 
     <link rel="stylesheet" href="<?php echo tema; ?>/css/slick/slick.css" media="all">
+    <link rel="stylesheet" href="<?php echo tema; ?>/css/index.css" media="all">
     <style>
         <?php echo file_get_contents(tema . "/css/index.css"); ?>
     </style>

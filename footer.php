@@ -1,5 +1,16 @@
 <script src="<?php echo tema; ?>/javascript/jquery.slim.min.js"></script>
-<script src="<?php echo tema; ?>/partes/menu/javascript/menu.min.js"></script>
+
+
+<?php
+if (is_home()) {
+    echo "<script src='" . tema . "/partes/menu/javascript/menu.min.js'></script>";
+} else {
+    echo "<script src='" . tema . "/partes/menu/javascript/menuInterno.min.js'></script>";
+}
+?>
+
+
+
 <script src="<?php echo tema; ?>/javascript/slick.min.js"></script>
 
 <script>
@@ -16,50 +27,121 @@
 </script>
 
 
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-<!----------aqui eu descubro se a div é horizontal ou vertical----------------------->
+
+
+
 <script>
-    document.addEventListener("DOMContentLoaded", updateOrientationClasses);
-    window.addEventListener("resize", updateOrientationClasses);
-
-    function updateOrientationClasses() {
-        const gridItems = document.querySelectorAll('.grid-item');
-
-        gridItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            const width = rect.width;
-            const height = rect.height;
-
-            // Remove classes antigas, se houver
-            item.classList.remove('horizontal', 'vertical', 'nano');
-
-            // Verifica se é "nano" primeiro
-            if (width < 200 || height < 200) {
-                item.classList.add('nano');
-            } else {
-                // Define a nova classe com base na proporção, caso não seja "nano"
-                if (width > height) {
-                    item.classList.add('horizontal');
-                } else {
-                    item.classList.add('vertical');
-                }
-            }
-        });
+    jQuery(document).ready(function () {
+    function initializeSlick() {
+        // Verifica se a largura da janela é maior que 768px
+        if (jQuery(window).width() > 768) {
+            jQuery('#serviços').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                prevArrow: jQuery('.custom-prev'), // Seta "Anterior"
+                nextArrow: jQuery('.custom-next'), // Seta "Próxima"
+            });
+        }
     }
+
+    // Inicializa o slick na carga da página
+    initializeSlick();
+
+    // Verifica a largura novamente ao redimensionar a janela
+    jQuery(window).resize(function () {
+        if (jQuery(window).width() > 768) {
+            // Caso ainda não esteja inicializado
+            if (!jQuery('#serviços').hasClass('slick-initialized')) {
+                initializeSlick();
+            }
+        } else {
+            // Destroi o slick se a largura for menor ou igual a 768px
+            if (jQuery('#serviços').hasClass('slick-initialized')) {
+                jQuery('#serviços').slick('unslick');
+            }
+        }
+    });
+});
+
 </script>
 
+
+
+
+
+<script>
+  
+  jQuery(document).ready(function () {
+    const $tituloBig = jQuery("#tituloBig");
+
+    function bindHoverEvents() {
+        jQuery('.servicosHome').hover(
+            function () {
+                if (window.innerWidth > 768) { // Verifica largura da tela
+                    // Quando o mouse entra
+                    const $span = jQuery(this).children('span');
+                    if ($span.length) {
+                        const info = $span.html(); // Captura o HTML dentro do span
+                        $tituloBig.html(info) // Atualiza o conteúdo do elemento com ID 'tituloBig'
+                            .addClass("ShowTituloHome") // Adiciona a classe 'ShowTituloHome'
+                            .removeClass("fadeTitulo"); // Remove classe de fade, caso ainda esteja ativa
+                    }
+                }
+            },
+            function () {
+                if (window.innerWidth > 768) { // Verifica largura da tela
+                    // Quando o mouse sai
+                    $tituloBig.removeClass("ShowTituloHome") // Remove a classe 'ShowTituloHome'
+                        .addClass("fadeTitulo"); // Adiciona a classe 'fadeTitulo'
+
+                    // Remove o fade após 300ms
+                    setTimeout(() => $tituloBig.removeClass("fadeTitulo"), 300);
+                }
+            }
+        );
+    }
+
+    function unbindHoverEvents() {
+        jQuery('.servicosHome').off('mouseenter mouseleave');
+    }
+
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            bindHoverEvents();
+        } else {
+            unbindHoverEvents();
+        }
+    }
+
+    // Executa no carregamento inicial
+    handleResize();
+
+    // Monitora alterações de tamanho da janela
+    jQuery(window).resize(handleResize);
+});
+
+</script>
+
+
+
+
+
 <!----------------------------------------------------------------------------------->
+<!----------aqui eu descubro se a div é horizontal ou vertical----------------------->
+<script src="<?php echo tema; ?>/javascript/efeitosTela/DivVerticalHorizontal.js"></script>
 <!----------------------------------------------------------------------------------->
+<!-------------Atualizando o css------------------------------------------------------>
+<script src="<?php echo tema; ?>/javascript/efeitosTela/AtualizaCSS.js"></script>
 <!----------------------------------------------------------------------------------->
+<!---------------Controle da tela do site-------------------------------------------->
+<script src="<?php echo tema; ?>/javascript/efeitosTela/Tela.js"></script>
 <!----------------------------------------------------------------------------------->
-
-
-
-
-
-
+<!---------------------piscando os botões-------------------------------------------->
+<script src="<?php echo tema; ?>/javascript/efeitosTela/piscandoosBotoes.js"></script>
+<!------------------------------------------------------------------------------------>
 
 
 <!----------------------------------------------------------------------------------->
@@ -97,129 +179,89 @@
 
 
 
-
-
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-<!-------------Atualizando o css------------------------------------------------------>
 <script>
-    function isLocalhost() {
-        if (document.location.hostname === 'localhost') {
-            console.log("Estamos no ambiente localhost");
-            return true;
-        } else {
-            console.log("Não estamos no ambiente localhost");
-            return false;
-        }
+    // Configuração de distância mínima e fator de movimentação
+    const minDistance = 450; // Distância mínima em pixels
+    const moveFactor = 0.1; // Fator de movimentação (quanto se mover)
+    const smoothingFactor = 0.1; // Fator de suavização (quanto menor, mais suave)
+    const maxScale = 1.1; // Fator máximo de escala (aumento)
+
+    // Seleciona os elementos
+    const moveElements = document.querySelectorAll('.move');
+
+    // Armazena as posições e escalas alvo e atuais
+    const elementData = new Map();
+
+    // Inicializa dados dos elementos
+    moveElements.forEach(element => {
+        elementData.set(element, {
+            currentX: 0,
+            currentY: 0,
+            targetX: 0,
+            targetY: 0,
+            currentScale: 1,
+            targetScale: 1
+        });
+    });
+
+    // Função para calcular a distância
+    function calculateDistance(x1, y1, x2, y2) {
+        return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
     }
 
-    // Função para verificar atualizações nos arquivos CSS e recarregar o cache
-    function updatePageOnCssChange() {
-        if (isLocalhost()) {
-            const cssFiles = document.querySelectorAll('link[rel="stylesheet"]');
+    // Função de animação
+    function animateElements() {
+        moveElements.forEach(element => {
+            const data = elementData.get(element);
 
-            if (cssFiles.length === 0) {
-                console.log("Nenhum arquivo CSS encontrado na página");
-            } else {
-                console.log(`${cssFiles.length} arquivo(s) CSS encontrado(s) na página`);
-            }
+            // Interpola as posições e a escala
+            data.currentX += (data.targetX - data.currentX) * smoothingFactor;
+            data.currentY += (data.targetY - data.currentY) * smoothingFactor;
+            data.currentScale += (data.targetScale - data.currentScale) * smoothingFactor;
 
-            // Atualiza o href de cada CSS a cada 5 segundos para garantir uma nova versão
-            setInterval(() => {
-                cssFiles.forEach((cssFile) => {
-                    const originalHref = cssFile.getAttribute('href').split('?')[0];
+            // Aplica a transformação suavizada
+            element.style.transform = `translate(${data.currentX}px, ${data.currentY}px) scale(${data.currentScale})`;
+        });
 
-                    // Adiciona timestamp para forçar o cache-busting
-                    cssFile.setAttribute('href', `${originalHref}?timestamp=${new Date().getTime()}`);
-
-                    //alert(`Arquivo CSS atualizado: ${cssFile.href}`);
-                });
-            }, 2000); // Verifica a cada 5 segundos
-        }
+        // Continua o ciclo de animação
+        requestAnimationFrame(animateElements);
     }
 
-    // Executa a função para atualizar a página sempre que o CSS é alterado
-    updatePageOnCssChange();
-</script>
+    // Inicia a animação
+    animateElements();
 
+    // Evento de movimento do mouse
+    document.addEventListener('mousemove', (event) => {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
 
+        moveElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const elementX = rect.left + rect.width / 2;
+            const elementY = rect.top + rect.height / 2;
 
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
+            const distance = calculateDistance(mouseX, mouseY, elementX, elementY);
 
+            const data = elementData.get(element);
 
+            if (distance < minDistance) {
+                // Calcula as posições e a escala alvo
+                data.targetX = (mouseX - elementX) * moveFactor;
+                data.targetY = (mouseY - elementY) * moveFactor;
 
-
-
-
-<!----------------------------------------------------------------------------------->
-<!---------------Controle da tela do site-------------------------------------------->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const openDiv = document.querySelector('.open');
-
-        openDiv.addEventListener('click', function() {
-            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-                // Sai do modo tela cheia
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) { // Suporte para Firefox
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) { // Suporte para Chrome, Safari e Opera
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { // Suporte para IE/Edge
-                    document.msExitFullscreen();
-                }
+                // Aumenta o elemento gradualmente
+                data.targetScale = maxScale;
             } else {
-                // Entra no modo tela cheia
-                if (document.documentElement.requestFullscreen) {
-                    document.documentElement.requestFullscreen();
-                } else if (document.documentElement.mozRequestFullScreen) { // Suporte para Firefox
-                    document.documentElement.mozRequestFullScreen();
-                } else if (document.documentElement.webkitRequestFullscreen) { // Suporte para Chrome, Safari e Opera
-                    document.documentElement.webkitRequestFullscreen();
-                } else if (document.documentElement.msRequestFullscreen) { // Suporte para IE/Edge
-                    document.documentElement.msRequestFullscreen();
-                }
+                // Reseta as posições e escala alvo caso esteja fora da distância mínima
+                data.targetX = 0;
+                data.targetY = 0;
+                data.targetScale = 1; // Volta ao tamanho original
             }
         });
     });
 </script>
 <!----------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------->
-
-
-
-
-
-<!---------------------piscando os botões-------------------------------------------->
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-  setInterval(() => {
-    // Seleciona todas as divs com a classe "widget"
-    const widgetDivs = document.querySelectorAll('.widget');
-
-    widgetDivs.forEach(widget => {
-      // Seleciona todas as ul dentro dessas divs
-      const ulElements = widget.querySelectorAll('ul');
-
-      ulElements.forEach(ul => {
-        // Seleciona todas as li dentro dessas ul
-        const liElements = ul.querySelectorAll('li');
-
-        liElements.forEach((li, index) => {
-          // Define um atraso baseado no índice
-          setTimeout(() => {
-            li.classList.toggle('blink');
-          }, index * 1000); // Cada `li` tem 1 segundo de diferença
-        });
-      });
-    });
-  }, 1000 * document.querySelectorAll('.widget ul li').length); // Reseta o loop após todas piscarem
-});
-
-</script>
-<!------------------------------------------------------------------------------------>
 
 
 

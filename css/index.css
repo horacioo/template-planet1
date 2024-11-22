@@ -447,7 +447,7 @@ body {
     left: 0;
     top: 0;
   }
-  nav {
+  #menuHome {
     padding-top: 3.6041666667vh;
     max-width: 70vw;
     padding: 4vw;
@@ -460,7 +460,7 @@ body {
   }
 }
 @media screen and (max-width: 767px) and (max-width: 768px) {
-  nav body {
+  #menuHome body {
     width: 100%;
     font-size: 3.660156vw;
     line-height: 6vw;
@@ -468,7 +468,7 @@ body {
   }
 }
 @media screen and (max-width: 767px) and (max-width: 500px) {
-  nav body {
+  #menuHome body {
     width: 100%;
     font-size: 5vw;
     line-height: 13vw;
@@ -476,18 +476,18 @@ body {
   }
 }
 @media screen and (max-width: 767px) {
-  nav ul {
+  #menuHome ul {
     gap: 2.9296875vw;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  nav ul *:has(.sub-menu) {
+  #menuHome ul *:has(.sub-menu) {
     padding: 3vw;
     background-color: rgba(255, 255, 255, 0.175);
     border-radius: 0.9765625vw;
   }
-  nav ul *:has(.sub-menu):hover .sub-menu {
+  #menuHome ul *:has(.sub-menu):hover .sub-menu {
     position: absolute;
     top: 0;
     background-color: #007d97;
@@ -498,7 +498,7 @@ body {
     animation: AbreSubMenu 300ms ease-in-out forwards;
     border-left: 0.1953125vw solid #003e4a;
   }
-  nav ul *:has(.sub-menu):hover .sub-menu li {
+  #menuHome ul *:has(.sub-menu):hover .sub-menu li {
     background-color: #00687D;
     width: 90%;
     padding: 2vw;
@@ -506,15 +506,15 @@ body {
     margin-bottom: 2vw;
     text-align: center;
   }
-  nav ul li {
+  #menuHome ul li {
     max-width: 100%;
   }
-  nav ul li a {
+  #menuHome ul li a {
     text-transform: capitalize;
     color: white;
     font-weight: 200;
   }
-  nav ul li .sub-menu {
+  #menuHome ul li .sub-menu {
     display: none;
   }
   .openMenu {
@@ -648,7 +648,7 @@ body {
   #fundao {
     display: none;
   }
-  nav {
+  #menuHome {
     padding-top: 0.5859375vw;
     padding-bottom: 0.5859375vw;
     padding-left: 3.61328125vw;
@@ -658,12 +658,12 @@ body {
     flex-direction: row-reverse;
     color: white;
   }
-  nav ul {
+  #menuHome ul {
     display: flex;
     flex-direction: row;
     gap: 1.26953125vw;
   }
-  nav ul li {
+  #menuHome ul li {
     position: relative;
     white-space: nowrap;
     display: flex;
@@ -672,16 +672,16 @@ body {
     /*************************************************/
     /*************************************************/
   }
-  nav ul li a {
+  #menuHome ul li a {
     color: white;
     text-transform: capitalize;
     font-weight: 200;
     align-content: center;
   }
-  nav ul li:hover ul {
+  #menuHome ul li:hover ul {
     display: flex;
   }
-  nav ul li ul {
+  #menuHome ul li ul {
     display: none;
     position: absolute;
     flex-direction: column;
@@ -692,7 +692,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-  nav ul li ul li {
+  #menuHome ul li ul li {
     background-color: #00687D;
     width: 100%;
     padding: 1vw;
@@ -701,7 +701,7 @@ body {
     font-size: 1.3671875vw;
     box-shadow: 0.78125vw 0.78125vw 2.78125vw #00687D;
   }
-  nav ul li ul li:hover {
+  #menuHome ul li ul li:hover {
     animation: menuLi 200ms forwards;
   }
   @keyframes menuLi {
@@ -834,17 +834,130 @@ body {
     font-size: 3.125vw;
     font-weight: bold;
   }
+  main #tituloBig {
+    background-color: #00687D;
+    position: fixed;
+    bottom: 1vw;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3000;
+    padding: 2vw;
+    color: white;
+    font-size: 2vw;
+    border-radius: 0.9765625vw;
+    text-transform: uppercase;
+    border: 0.09765625vw solid white;
+    opacity: 0;
+  }
+  main #tituloBig a {
+    color: white;
+  }
+  main #tituloBig p {
+    margin-top: 1.4vw;
+    margin-bottom: 1.4vw;
+    display: block;
+    font-size: 1vw;
+    line-height: 1.4;
+  }
+  main .ShowTituloHome {
+    animation: TituloAparece 500ms forwards;
+  }
+  main .ShowTituloHome a {
+    color: white;
+  }
+  @keyframes TituloAparece {
+    0% {
+      bottom: -4vw;
+      opacity: 0;
+    }
+    100% {
+      bottom: 1vw;
+      opacity: 1;
+    }
+  }
+  main .fadeTitulo {
+    animation: TituloSome 200ms forwards;
+  }
+  @keyframes TituloSome {
+    0% {
+      bottom: 1vw;
+      opacity: 1;
+    }
+    100% {
+      bottom: -5vw;
+      opacity: 0;
+    }
+  }
   main #serviços {
     margin-top: 2.34375vw;
     display: flex;
     flex-direction: row;
     gap: 1.85546875vw;
   }
-  main #serviços li {
+  main #serviços span {
+    display: none;
+  }
+  main #serviços li picture {
+    display: block;
     height: 20.1171875vw;
-    width: 19.43359375vw;
+    width: 19.3359375vw;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.9765625vw;
+    border: 0.1953125vw solid #00687D;
     background-color: grey;
+  }
+  main #serviços li picture:hover {
+    animation: bordasOnHover 1000ms alternate-reverse infinite;
+  }
+  main #serviços li picture img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+  }
+  @keyframes bordasOnHover {
+    0% {
+      border: 0.1953125vw solid #00687D;
+    }
+    100% {
+      border: 0.1953125vw solid #D28746;
+    }
+  }
+  main #serviços li a {
+    color: white;
+    text-transform: capitalize;
+  }
+  main #serviços li .showText {
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.459);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: TextosDeServicos 200ms forwards;
+  }
+  @keyframes TextosDeServicos {
+    0% {
+      opacity: 0;
+      filter: blur(4px);
+    }
+    90% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+  main #serviços li img {
+    width: 101%;
+    height: auto;
     border-radius: 1.3671875vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
   }
   main #about {
     height: 43.5546875vw;
@@ -934,6 +1047,7 @@ body {
     bottom: -0.0171875vw;
     width: 40.625vw;
     height: 54.296875vw;
+    pointer-events: none;
   }
   main #about picture img {
     height: 100%;
@@ -1183,6 +1297,34 @@ body {
     justify-content: center;
     text-transform: capitalize;
     font-size: 4vw;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2vw;
+  }
+  main #serviços li span {
+    z-index: 49;
+    font-size: 7vw;
+    font-weight: bolder;
+    pointer-events: none;
+    color: white;
+    text-shadow: -1px -1px 0 #00687D, 1px -1px 0 #00687D, -1px 1px 0 #00687D, 1px 1px 0 #00687D;
+  }
+  main #serviços li span a {
+    color: white;
+  }
+  main #serviços li span p {
+    border: 1px solid red;
+    display: none;
+  }
+  main #serviços li img {
+    border: 1px solid red;
+    width: 102%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
   }
   main #paragrafo1,
   main #paragrafo2 {
@@ -1193,7 +1335,9 @@ body {
     font-size: 3.6vw;
     color: white;
   }
-  main #about h2, main #about h3, main #about h4 {
+  main #about h2,
+  main #about h3,
+  main #about h4 {
     color: white;
   }
   main #about picture {
@@ -1210,7 +1354,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-  main #englisVersion h2, main #englisVersion h3, main #englisVersion h4 {
+  main #englisVersion h2,
+  main #englisVersion h3,
+  main #englisVersion h4 {
     color: white;
   }
   main #englisVersion p {

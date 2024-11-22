@@ -23,7 +23,7 @@
 <div id="fundao"></div>
 
 
-<nav>
+<nav  class="SegundoMenuTopo">
     <?php wp_nav_menu() ?>
 </nav>
 

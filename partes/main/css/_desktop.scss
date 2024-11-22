@@ -10,20 +10,18 @@
     overflow: hidden;
 }
 
-
-@mixin paragrafos(){
+@mixin paragrafos() {
     position: absolute;
     width: 44.82421875vw;
     min-height: 9.375vw;
     height: auto;
     font-size: 1.66015625vw;
     line-height: 1.438;
-    margin-bottom:3.515625vw;
+    margin-bottom: 3.515625vw;
     //color: $cor1;
     text-align: right;
-    @content
+    @content;
 }
-
 
 @include respond-to(bigger) {
     main {
@@ -31,12 +29,10 @@
         padding-right: 9.375vw;
         padding-top: 4.58984375vw;
         position: relative;
-        background-image: url('#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral.avif');
+        background-image: url("#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral.avif");
         background-repeat: no-repeat;
         background-size: cover;
         //background-position-y:12vw ;
-
-
 
         .buttom {
             @include botao() {
@@ -90,16 +86,140 @@
             font-weight: bold;
         }
 
+
+
+
+
+
+        #tituloBig {
+            background-color: $cor1;
+            position: fixed;
+            bottom: 1vw;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3000;
+            padding: 2vw;
+            color: white;
+            font-size: 2vw;
+            border-radius: 0.9765625vw;
+            text-transform: uppercase;
+            border: 0.09765625vw solid white;
+            opacity: 0;
+            a{
+                color: white;
+            }
+            p{
+                margin-top: 1.4vw;
+                margin-bottom: 1.4vw;
+                display: block;
+                font-size: 1vw;
+                line-height: 1.4;
+            }
+        }
+        .ShowTituloHome {
+            animation:TituloAparece 500ms forwards ;
+            a{
+                color: white;
+            }
+        }
+
+        @keyframes TituloAparece {
+            0%  {bottom: -4vw;    opacity: 0;}
+            100%{bottom: 1vw;  opacity: 1;}
+        }
+
+      
+
+       .fadeTitulo{
+        animation:TituloSome 200ms forwards ;
+       }
+       
+       @keyframes TituloSome {
+        0%  {bottom: 1vw;    opacity: 1; }
+        100%{bottom: -5vw;  opacity: 0; }
+    }
+
+
+
+
+
         #serviços {
             margin-top: 2.34375vw;
             display: flex;
             flex-direction: row;
             gap: 1.85546875vw;
+
+            span{
+                display: none;
+            }
+
             li {
-                height: 20.1171875vw;
-                width: 19.43359375vw;
-                background-color: grey;
-                border-radius: 1.3671875vw;
+                picture {
+                    display: block;
+                    height: 20.1171875vw;
+                    width: 19.3359375vw;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 0.9765625vw;
+                    border: 0.1953125vw solid $cor1;
+                    background-color: grey;
+                    &:hover{
+                       animation: bordasOnHover 1000ms alternate-reverse infinite;
+                    }
+                    
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 103%;
+                    }
+                }
+
+                @keyframes bordasOnHover { 
+                    0%  { border: 0.1953125vw solid $cor1; }
+                    100%{ border: 0.1953125vw solid $cor2; }
+                }
+
+                a {
+                    color: white;
+                    text-transform: capitalize;
+                }
+
+                
+
+                .showText {
+                    box-shadow: 10px 10px rgba(0, 0, 0, 0.459);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    animation: TextosDeServicos 200ms forwards;
+                }
+
+                @keyframes TextosDeServicos {
+                    0% {
+                        opacity: 0;
+                        filter: blur(4px);
+                    }
+                    90% {
+                        opacity: 1;
+                        filter: blur(0px);
+                    }
+                    100% {
+                        opacity: 1;
+                        filter: blur(0px);
+                    }
+                }
+
+                img {
+                    width: 101%;
+                    height: auto;
+                    border-radius: 1.3671875vw;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 0;
+                }
             }
         }
 
@@ -107,13 +227,13 @@
             height: 43.5546875vw;
             position: relative;
             color: white;
-            
+
             h2 {
                 @include botao() {
                     background-color: $cor2;
                     position: absolute;
                     right: 0vw;
-                    top:3.3203125vw;
+                    top: 3.3203125vw;
                     font-size: 3.125vw;
                     border-radius: 0.48828125vw;
                     padding-top: 0.87890625vw;
@@ -123,35 +243,36 @@
                 }
             }
 
-            #paragrafo1{
-                @include paragrafos(){
-                    top:9.1796875vw;
+            #paragrafo1 {
+                @include paragrafos() {
+                    top: 9.1796875vw;
                     right: 0;
                     color: white;
                 }
             }
 
-            #paragrafo2{
-                @include paragrafos(){
-                    top:22.0703125vw;
+            #paragrafo2 {
+                @include paragrafos() {
+                    top: 22.0703125vw;
                     right: 0;
                     color: white;
                 }
             }
-            picture{
+            picture {
                 position: absolute;
                 bottom: -0.0171875vw;
                 width: 40.625vw;
                 height: 54.296875vw;
-                img{
+
+                pointer-events: none;
+                img {
                     height: 100%;
                     width: auto;
                 }
             }
         }
 
-
-        #separador{
+        #separador {
             position: relative;
             left: -7.39vw;
             height: 5.2734375vw;
@@ -160,54 +281,47 @@
             border: 1;
         }
 
-
-        #englisVersion{
+        #englisVersion {
             position: relative;
             padding-top: 3.80859375vw;
-            padding-bottom:4.6875vw;
+            padding-bottom: 4.6875vw;
             height: 42.28515625vw;
             color: white;
-            h2{
+            h2 {
                 font-size: 2.9453125vw;
                 margin-bottom: 3.90625vw;
             }
-            p{
+            p {
                 width: 56.193359375vw;
                 height: 10.484375vw;
                 font-size: 2.0029296875vw;
                 line-height: 1.438;
-
             }
 
-            ul{
+            ul {
                 margin-top: 1.7578125vw;
                 margin-left: 8.3984375vw;
-                li{
+                li {
                     font-size: 1.6494140625vw;
                     margin-bottom: 2.1484375vw;
                 }
             }
 
-
-            #moreData{
+            #moreData {
                 @include botao() {
                     background-color: $cor2;
                     position: absolute;
                     right: 0;
-                    top:34.47265625vw;
-                    border-radius:0.48828125vw;
+                    top: 34.47265625vw;
+                    border-radius: 0.48828125vw;
                     font-size: 3.125vw;
                 }
             }
 
-            #conclusion{
+            #conclusion {
                 font-size: 2.3564453125vw;
                 font-weight: bold;
             }
-
-
         }
-
-
     }
 }

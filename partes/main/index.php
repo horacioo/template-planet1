@@ -15,12 +15,76 @@
 
     <h2 id="titulo">Nossos Serviços</h2>
 
-    <ul id="serviços">
-        <li>criação de sites</li>
-        <li>Fabrica de software</li>
-        <li>Hospedagem de Sites</li>
-        <li>SEO</li>
-    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!------------------------------------------------------------>
+    <!------------------------------------------------------------>
+    <!------------------------------------------------------------>
+    <!------------------------------------------------------------>
+
+    <?php
+    $parent_id = 11; // ID da página pa
+    $child_pages = get_pages(array(
+        'child_of' => $parent_id,
+        'sort_column' => 'menu_order', // Ordenar pelas posições do menu
+        'sort_order' => 'ASC',          // Ordem crescente
+        'number'      => 7
+    ));
+
+    // Verificar se há páginas filhas
+    if (! empty($child_pages)) {
+        echo '<ul id="serviços">';
+        foreach ($child_pages as $page) {
+            $img = get_the_post_thumbnail_url($page->ID);
+            /**************************************************/
+            $imagem_path = ImagemPath($page->ID);
+            $tamanhos = [
+                ['largura' => 199, 'altura' => 206,   'qualidade' => 90],
+                ['largura' => 256, 'altura' => 274,   'qualidade' => 70],
+                ['largura' => 373, 'altura' => 386,   'qualidade' => 60],
+            ];
+            $imagens = reduzirImagem($imagem_path, $tamanhos);
+            /**************************************************/
+
+            echo '<li class="servicosHome"> 
+                    <span>
+                    <a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>
+                    <p>'.get_the_excerpt( $page->ID ).'</p>
+                    </span>
+                        <a href="' . get_permalink($page->ID) . '">
+                            <picture> 
+                                <img src="' . $imagens['urls']['373x386'] . '" alt="' . get_the_title($page->ID) . '">
+                            </picture>
+                        </a>
+            </li>';
+        }
+        echo '</ul>';
+    } else {
+        echo '';
+    }
+
+    ?>
+    <div id="tituloBig"> </div>
+
+
+
+
+
+
+
+
+
 
     <section id="about">
         <h2>Sobre Nós</h2>
@@ -48,7 +112,7 @@
             <li>No matter the distance, we’re ready to help your business stand out online.</li>
         </ul>
         <p id="conclusion">Let’s talk about your project</p>
-        <a  href="#" id="moreData">more</a>
+        <a href="#" id="moreData">more</a>
     </section>
     <!-------------------------------------------------------->
 

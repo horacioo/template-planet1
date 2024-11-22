@@ -24,62 +24,87 @@
         position: fixed;
     }
 
-    .openMenu{
+    .openMenu {
         animation: menu 700ms forwards;
     }
 
-
-    h1{
+    h1 {
         text-align: center;
         margin-top: 4.8828125vw;
     }
- 
-    .menuTopo {
+
+    .SegundoMenuTopo {
+        left: 0px;
         position: fixed;
-        top: 0;
+        top: 0px;
+        background: linear-gradient(50deg, lighten($cor1,10) , $cor1);
+        z-index: 30;
         height: 100vh;
-        background-color: $cor1;
-        color: white;
-        padding: 4vw;
-        z-index: 20000;
+        padding: 3vw;
+
         ul {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9765625vw;
             li {
-                text-transform: capitalize;
-                padding: 1vw;
+
+                margin: 1vw;
+                margin-bottom: 3.9765625vw;
+                white-space: nowrap;
+                padding: 0.6vw;
+                text-transform: uppercase;
+                font-size: 2.471875vw;
+                a {
+                    color: white;
+                    text-align: center;
+                    padding: 0.5vw;
+                }
                 position: relative;
                 &:hover {
+                    
+                    
                     ul {
-                        display: block;
-                        border: 1px solid white;
-                        display: block;
-                        left: 6vw;
+                        animation: submenu 1s forwards;
+                        padding-top: 2vw;
+                        border-radius: 0.48828125vw;
+                        box-shadow: 0.9765625vw 0.9765625vw rgba(0, 0, 0, 0.474);
+                        position: absolute;
                         top: 50%;
                         transform: translateY(-50%);
-                        position: absolute;
-                        z-index: 3000;
                         background-color: $cor1;
-                        padding:3vw;
-                        white-space: nowrap;
-                        border-radius: 0.58828125vw;
-                        gap: 0.9765625vw;
+                        display: block;
+                        border: 1px solid $cor2;
                     }
                 }
-                ul{ display: none;}
+                ul { display: none;}
             }
         }
+       
     }
 
+    @keyframes submenu {
+        0%   { opacity: 0;  left: -30px;}
+        100% { opacity: 0.8; left: 6.953125vw;}
+
+    }
+
+  
+    @keyframes hover {
+        0%   { background-color: darken($cor1,0);}
+        100% {  background-color: darken($cor1,10); }
+
+    }
 
 
     @keyframes menu {
-        0%{top: -20vw; opacity: 0;} 
-        20%{top: -20vw; opacity: 0;} 
-        100%{top:0vw; opacity: 1;}
+        0% {
+            top: -20vw;
+            opacity: 0;
+        }
+        20% {
+            top: -20vw;
+            opacity: 0;
+        }
+        100% {
+            top: 0vw;
+            opacity: 1;
+        }
     }
-
-
-
 }

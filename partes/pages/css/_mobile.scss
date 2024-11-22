@@ -12,7 +12,6 @@
 @include respond-to(mobile) {
     body {
         @include fontes();
-
         color: $cor1;
         picture {
             margin-top: 2.604166666667vh;

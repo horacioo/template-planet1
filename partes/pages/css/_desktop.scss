@@ -10,10 +10,7 @@
 
 @include respond-to(bigger) {
     #page {
-
-
-
-        .promote{
+        .promote {
             padding: 1vw;
             font-size: 1.171875vw;
             background-color: $cor1;
@@ -23,19 +20,22 @@
             //border-radius: 0.48828125vw;
             border: 4px solid transparent;
             color: white;
-            animation: backgroundInfo 4.3s infinite, lateral 1s linear infinite;
-            a{
-                color: white!important;
+            animation:
+                backgroundInfo 4.3s infinite,
+                lateral 1s linear infinite;
+            a {
+                color: white !important;
                 font-size: 1.3671875vw;
             }
         }
-
 
         /*************************************************************/
         /*************************************************************/
         /*************************************************************/
         /*************************************************************/
         .sidebar {
+            position: fixed;
+            
             h2 {
                 text-transform: uppercase;
             }
@@ -103,11 +103,26 @@
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
+                width: 102%;
                 max-width: 100%;
+                animation: color 12700ms infinite;
             }
         }
         /********************************************************/
-
+        @keyframes color {
+            0% {
+                filter: saturate(1);
+            }
+            50% {
+                filter: saturate(0.8);
+            }
+            70% {
+                filter: saturate(0.5);
+            }
+            100% {
+                filter: saturate(1);
+            }
+        }
         /********************************************************/
 
         header {
@@ -156,7 +171,6 @@
                 margin-bottom: 1vw;
             }
 
-
             .wp-block-image {
                 display: block;
                 img {
@@ -167,8 +181,6 @@
                     border: 1px solid $cor1;
                 }
             }
-
-
         }
         /********************************************************/
 

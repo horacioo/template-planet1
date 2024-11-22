@@ -17,8 +17,7 @@ $distnacia: 2vh;
 
 @include respond-to(mobile) {
     main {
-
-        background-image: url('#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral-766.svg');
+        background-image: url("#{$url}/wp-content/themes/planet1-newDesign/partes/main/imagens/fundaoGeral-766.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position-y: 56vw;
@@ -102,6 +101,38 @@ $distnacia: 2vh;
                 justify-content: center;
                 text-transform: capitalize;
                 font-size: 4vw;
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 2vw;
+                span {
+                    z-index: 49;
+                    font-size: 7vw;
+                    font-weight: bolder;
+                    pointer-events: none;
+                    color: white;
+                    text-shadow:
+                        -1px -1px 0 $cor1,
+                        1px -1px 0 $cor1,
+                        -1px 1px 0 $cor1,
+                        1px 1px 0 $cor1;
+                    a{
+                        color: white;
+                    }    
+                    p{
+                        border: 1px solid red;
+                        display: none;
+                    }    
+                }
+                img {
+                    border: 1px solid red;
+                    width: 102%;
+                    height: auto;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0.5;
+                }
             }
         }
 
@@ -112,11 +143,10 @@ $distnacia: 2vh;
             }
         }
 
-
-
         #about {
-
-            h2,h3,h4{
+            h2,
+            h3,
+            h4 {
                 color: white;
             }
 
@@ -136,11 +166,10 @@ $distnacia: 2vh;
             }
         }
 
-
-
-
         #englisVersion {
-            h2,h3,h4{
+            h2,
+            h3,
+            h4 {
                 color: white;
             }
             p {
@@ -160,15 +189,15 @@ $distnacia: 2vh;
                 }
             }
 
-            #conclusion{
-                font-size: 5.37109375vw; 
+            #conclusion {
+                font-size: 5.37109375vw;
                 color: white;
             }
 
-            #moreData{
-                @include botao(){
+            #moreData {
+                @include botao() {
                     font-size: 4.8828125vw;
-                    background-color: adjust-hue($cor2,-10deg);
+                    background-color: adjust-hue($cor2, -10deg);
                     margin-bottom: 1.953125vw;
                 }
             }

@@ -92,7 +92,7 @@
             ?>
 
 
-                    <div class="imagens item grid-item" id="post<?php echo $linha; ?>" style="">
+                    <div class="imagens item grid-item " id="post<?php echo $linha; ?>" style="">
                         <!------------------------------------------->
                         <div class="card">
 
@@ -148,9 +148,9 @@
         </span>
 
 
-        <img id="form1" src="<?php echo tema; ?>/partes/services/imagens/form1.svg">
-        <img id="form2" src="<?php echo tema; ?>/partes/services/imagens/phone1.svg">
-        <img id="form3" src="<?php echo tema; ?>/partes/services/imagens/telegran.svg">
+        <img class='move' id="form1" src="<?php echo tema; ?>/partes/services/imagens/form1.svg">
+        <img class='move' id="form2" src="<?php echo tema; ?>/partes/services/imagens/phone1.svg">
+        <img class='move' id="form3" src="<?php echo tema; ?>/partes/services/imagens/telegran.svg">
 
 
     </div>
