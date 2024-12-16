@@ -1,0 +1,303 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/mixins/button";
+@import "../../menu/css/menuInterno/desktop";
+
+$padding: 1.5vw;
+
+
+
+
+
+
+
+
+
+
+
+
+
+.backgroundForm {
+    position: relative;
+    overflow: hidden; /* Garante que os elementos fiquem dentro do pai */
+}
+
+.moveBG {
+    z-index: -0;
+    position: absolute;
+    width: 19.296875vw;
+    height: 19.296875vw;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 1%;
+    pointer-events: none; /* Impede interação do mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin MeusTextos {
+    //flex: -1;
+    margin-right: 1vw;
+    text-align: justify;
+    line-height: 1.8;
+    padding: 1.5vw;
+    font-size: 1.171875vw;
+    padding-bottom: 0;
+    P {
+        margin-bottom: 2vw;
+    }
+    @content;
+}
+
+@include respond-to(bigger) {
+    #web {
+        color: $cor1;
+        max-width: 99vw !important;
+
+        height: auto;
+        margin: 10px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 colunas de tamanhos iguais */
+        grid-template-rows: auto; /* Altura automática */
+        grid-template-areas:
+            "menu menu menu menu menu"
+            "thumbPrincipal thumbPrincipal thumbPrincipal thumbPrincipal thumbPrincipal"
+            "topo topo topo topo topo "
+            "princ princ princ princ princ"
+            "works works works works works "
+            "desc1 desc1 desc1 desc1 desc1"
+            "desc2 desc2 desc2 desc2 desc2"
+            "foot foot foot foot foot";
+
+        /* Definindo as áreas */
+        #thumbPrincipal {
+            margin-bottom: 5vw;
+            //display: none;
+            grid-area: thumbPrincipal;
+            width: 100%;
+            height: 24.4140625vw;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            img {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .SegundoMenuTopo {
+            grid-area: menu;
+            width: 100%;
+            position: relative;
+            z-index: 200;
+        }
+
+        header {
+            padding: 0;
+            h1 {
+                padding: 0 !important;
+                margin: 0 !important;
+                display: inline-block;
+                position: relative;
+                left: -1.2vw;
+                font-size: 4vw;
+            }
+
+            grid-area: topo;
+            padding: 3vw;
+            font-size: 1.4vw;
+            //padding-left: 0;
+        }
+
+        main {
+            grid-area: princ;
+            header {
+                padding-left: 0;
+            }
+            display: block;
+            width: 90vw;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            @include MeusTextos();
+            border-bottom: 1px solid $cor1;
+            margin-bottom: 4vw;
+        }
+
+        #descricao {
+            //border:3px solid red;
+            background-color: $cor1;
+            //background: linear-gradient(50deg, $cor1, darken($cor1,20));
+            grid-area: desc1;
+            display: flex;
+            padding: $padding;
+            margin-bottom: 4vw;
+            min-height: 100vh;
+            color: white;
+
+            #texto{
+                @include MeusTextos;
+                width: 60%;
+                z-index: 30;
+               
+            }
+            picture {
+                overflow: hidden;
+                position: relative;
+                width: 39.0625vw;
+                display: block;
+                max-height: 90%;
+                //border: 1px solid red;
+                bottom: -3.4vw;
+                img {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: auto;
+                    max-width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        #descricao2 {
+            grid-area: desc2;
+
+            display: flex;
+            padding: $padding;
+            flex-direction: row-reverse;
+
+            div {
+                @include MeusTextos;
+                width: 60%;
+            }
+            picture {
+                overflow: hidden;
+                position: relative;
+                width: 39.0625vw;
+                display: block;
+                max-height: 90%;
+                bottom: -3.4vw;
+                img {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+
+        footer {
+            grid-area: foot;
+        }
+
+        #trabalhosWeb {
+            position: relative;
+            grid-area: works;
+            min-height: 90vh;
+            width: 100vw;
+            left: 50%;
+            padding: 5vw;
+            transform: translateX(-50%);
+            background-color: adjust-hue($cor2,10) ;
+
+            h3 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2vw;
+                text-transform: capitalize;
+            }
+
+            #trabArrowPrev,
+            #trabArrowNext {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 3.953125vw;
+                border: 1px solid $cor1;
+                padding: 1vw;
+                display: inline-block;
+                background-color: white;
+                border-radius: 0.1953125vw;
+            }
+            #trabArrowPrev {
+                position: absolute;
+                left: 2vw;
+            }
+            #trabArrowNext {
+                position: absolute;
+                right: 2vw;
+            }
+
+            ul {
+                z-index: 12;
+                width: 60vw;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 3vw;
+
+                li {
+                    display: flex;
+                    gap: 0.9765625vw;
+                    display: block;
+                    position: relative;
+
+                    .ResumoDeTRabalhos {
+                        z-index: 30000;
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        padding: 1vw;
+                        background-color: $cor1;
+                        opacity: 0.8;
+                        color: white;
+                        font-size: 1.171875vw;
+                        line-height: 1.7;
+                        text-transform: capitalize;
+                    }
+                    picture {
+                        display: block;
+                        height: 80vh;
+                        width: 100%;
+                        position: relative;
+                        left: 50%;
+                        transform: translateX(-50%);
+                       z-index: 30;
+                        img {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 100.5%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import "../../footer/css/desktop";

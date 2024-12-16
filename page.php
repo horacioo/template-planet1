@@ -44,9 +44,9 @@
     </header>
 
 
-    <span>
+    <div>
         <?php echo get_the_content() ?>
-    </span>
+    </div>
 
 </main>
 <aside>

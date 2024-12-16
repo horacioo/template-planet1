@@ -38,6 +38,15 @@
         gap: 5.9765625vw;
         justify-content: space-around;
         padding-bottom: 3.2353515625vw;
+        ul{
+            li{
+                text-align: center;
+                margin-bottom: 2vw;
+                padding-top: 2vw;
+                padding-bottom: 2vw;
+                border-bottom: 0.09765625vw solid white;
+            }
+        }
 
 
         #contato {

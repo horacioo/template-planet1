@@ -49,16 +49,16 @@
     </header>
 
 
-    <span>
+    <div>
         <?php
         $conteudo  = get_the_content();
         $categoria = get_the_category( $id );
-
-       
-
         echo  inserir_html_no_meio_do_conteudo($conteudo, $categoria);
         ?>
-    </span>
+    </div>
+
+
+
 </main>
 <aside>
     <?php if (is_active_sidebar('sidebar-principal')) : ?>

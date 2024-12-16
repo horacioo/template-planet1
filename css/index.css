@@ -894,7 +894,7 @@ body {
     flex-direction: row;
     gap: 1.85546875vw;
   }
-  main #serviços span {
+  main #serviços span, main #serviços .destaque {
     display: none;
   }
   main #serviços li picture {
@@ -1053,13 +1053,13 @@ body {
     height: 100%;
     width: auto;
   }
-  main #separador {
+  main #separador, main #separador2 {
     position: relative;
     left: -7.39vw;
     height: 5.2734375vw;
     width: 99.8vw;
     background-color: #D28746;
-    border: 1;
+    border: 1px;
   }
   main #englisVersion {
     position: relative;
@@ -1170,7 +1170,7 @@ body {
   }
 }
 @media screen and (max-width: 767px) {
-  main #separador {
+  main #separador, main #separador2 {
     height: 5vw;
     background-color: #D28746;
     margin-bottom: 2vh;
@@ -1927,12 +1927,29 @@ body {
 /*****************************************************/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #blog {
-    @imclude fontes();
     height: auto;
     padding-bottom: 1.029296875vw;
     padding-top: 6.029296875vw;
     gap: 0.48828125vw;
   }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-width: 768px) {
+  #blog body {
+    width: 100%;
+    font-size: 3.660156vw;
+    line-height: 6vw;
+    text-align: justify;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-width: 500px) {
+  #blog body {
+    width: 100%;
+    font-size: 5vw;
+    line-height: 13vw;
+    text-align: justify;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #blog #postsDoBlog {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 5 colunas de tamanho igual */
@@ -2969,12 +2986,29 @@ body {
 /*****************************************************/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #blog {
-    @imclude fontes();
     height: auto;
     padding-bottom: 1.029296875vw;
     padding-top: 6.029296875vw;
     gap: 0.48828125vw;
   }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-width: 768px) {
+  #blog body {
+    width: 100%;
+    font-size: 3.660156vw;
+    line-height: 6vw;
+    text-align: justify;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) and (max-width: 500px) {
+  #blog body {
+    width: 100%;
+    font-size: 5vw;
+    line-height: 13vw;
+    text-align: justify;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #blog #postsDoBlog {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 5 colunas de tamanho igual */

@@ -149,7 +149,7 @@
             flex-direction: row;
             gap: 1.85546875vw;
 
-            span{
+            span, .destaque {
                 display: none;
             }
 
@@ -272,13 +272,13 @@
             }
         }
 
-        #separador {
+        #separador, #separador2 {
             position: relative;
             left: -7.39vw;
             height: 5.2734375vw;
             width: 99.8vw;
             background-color: $cor2;
-            border: 1;
+            border: 1px;
         }
 
         #englisVersion {

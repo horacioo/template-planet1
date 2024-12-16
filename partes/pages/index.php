@@ -1,12 +1,12 @@
 <section id="services">
 
 
-    <!------------------------------------------------------------->
+
     <div id="portifolio">
         <H2>Nosso Trabalho</H2>
         <p>Explore nosso portfólio e veja de perto como levamos cada negócio a um novo patamar no mundo digital! De sites únicos e funcionais a sistemas completos, cada projeto é pensado do zero, garantindo exclusividade e eficiência para os nossos clientes. Clique abaixo e inspire-se com os sites que já transformaram negócios como o seu!</p>
 
-        <!---------------------------------------------------------->
+
         <ul id="slidePortifolio" class="slick-slider">
             <li>
                 <picture>
@@ -19,14 +19,14 @@
                 </picture>
             </li>
         </ul>
-        <!---------------------------------------------------------->
+
         <img id="EsquerdaArrow" alt="seta Esquerda do slide" height="50" width="50" src="<?php echo tema ?>/partes/services/imagens/setaLeft.png">
         <img id="direitaArrow" alt="seta direita do slide" height="50" width="50" src="<?php echo tema ?>/partes/services/imagens/setaRight.png">
 
 
         <div id="botao">Ver Mais</div>
     </div>
-    <!------------------------------------------------------------->
+
 
 
 
@@ -77,6 +77,7 @@
                     $query->the_post();
                     $id = get_the_id();
                     $img = get_the_post_thumbnail_url($id);
+                    $alt_text = get_post_meta($img, '_wp_attachment_image_alt', true);
 
                     /***********************************************/
                     $imagem_path = ImagemPath($id);
@@ -93,10 +94,10 @@
 
 
                     <div class="imagens item grid-item" id="post<?php echo $linha; ?>" style="">
-                        <!------------------------------------------->
+
                         <div class="card">
 
-                            <picture><img src="<?php echo $imagens['urls']['350x350']; ?>'"></picture>
+                            <picture><img alt="<?php echo $alt_text ?>" src="<?php echo $imagens['urls']['350x350']; ?>'"></picture>
 
                             <h2 class="titulo">
                                 <?php echo get_the_title($id); ?>
@@ -111,7 +112,7 @@
                                 <?php echo get_the_date("d/M"); ?>
                             </div>
                         </div>
-                        <!------------------------------------------->
+
 
                     </div>
 
@@ -141,11 +142,11 @@
         <picture>
             <img src="<?php echo tema; ?>/partes/services/imagens/robo.png">
         </picture>
-        <span id="texto">
+        <div id="texto">
             <h2>Contato</h2>
             <p>E aí, gostou do nosso site? Você precisa de criação de sites profissionais para o seu empreendimento? Não perca seu tempo, acesse o formulário ao lado, preencha agora mesmo, e vamos entrar em contato com a proposta ideal para você!</p>
             <p>Não deixe seu negócio off-line, faça como as grandes empresas que se destacaram no ramo e apareça para o mundo digital! criação de sites profissionais é com a Planet1</p>
-        </span>
+        </div>
 
 
         <img id="form1" src="<?php echo tema; ?>/partes/services/imagens/form1.svg">

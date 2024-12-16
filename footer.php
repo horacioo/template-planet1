@@ -19,53 +19,94 @@ if (is_home()) {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 5000,
 
         prevArrow: jQuery('.custom-prev'), // Seta "Anterior"
         nextArrow: jQuery('.custom-next'), // Seta "Próxima"
     });
-</script>
+    /****************************************************************/
+    /****************************************************************/
+    jQuery('#slidePortifolio').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
 
-
-
-
-
-<script>
-    jQuery(document).ready(function () {
-    function initializeSlick() {
-        // Verifica se a largura da janela é maior que 768px
-        if (jQuery(window).width() > 768) {
-            jQuery('#serviços').slick({
-                infinite: true,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                prevArrow: jQuery('.custom-prev'), // Seta "Anterior"
-                nextArrow: jQuery('.custom-next'), // Seta "Próxima"
-            });
-        }
-    }
-
-    // Inicializa o slick na carga da página
-    initializeSlick();
-
-    // Verifica a largura novamente ao redimensionar a janela
-    jQuery(window).resize(function () {
-        if (jQuery(window).width() > 768) {
-            // Caso ainda não esteja inicializado
-            if (!jQuery('#serviços').hasClass('slick-initialized')) {
-                initializeSlick();
-            }
-        } else {
-            // Destroi o slick se a largura for menor ou igual a 768px
-            if (jQuery('#serviços').hasClass('slick-initialized')) {
-                jQuery('#serviços').slick('unslick');
-            }
-        }
+        prevArrow: jQuery('#EsquerdaArrow'), // Seta "Anterior"
+        nextArrow: jQuery('#direitaArrow'), // Seta "Próxima"
     });
-});
+</script>
 
+
+
+
+
+
+
+
+
+
+
+
+<script >
+    jQuery('#MeusTrabalhos').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 5000,
+        arrows: true, // Habilita botões personalizados
+        prevArrow: jQuery('#trabArrowPrev'),
+        nextArrow: jQuery('#trabArrowNext')
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    jQuery(document).ready(function() {
+        function initializeSlick() {
+            // Verifica se a largura da janela é maior que 768px
+            if (jQuery(window).width() > 768) {
+                jQuery('#serviços').slick({
+                    infinite: true,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    prevArrow: jQuery('.custom-prev'), // Seta "Anterior"
+                    nextArrow: jQuery('.custom-next'), // Seta "Próxima"
+                });
+            }
+        }
+
+        // Inicializa o slick na carga da página
+        initializeSlick();
+
+        // Verifica a largura novamente ao redimensionar a janela
+        jQuery(window).resize(function() {
+            if (jQuery(window).width() > 768) {
+                // Caso ainda não esteja inicializado
+                if (!jQuery('#serviços').hasClass('slick-initialized')) {
+                    initializeSlick();
+                }
+            } else {
+                // Destroi o slick se a largura for menor ou igual a 768px
+                if (jQuery('#serviços').hasClass('slick-initialized')) {
+                    jQuery('#serviços').slick('unslick');
+                }
+            }
+        });
+    });
 </script>
 
 
@@ -73,80 +114,78 @@ if (is_home()) {
 
 
 <script>
-  
-  jQuery(document).ready(function () {
-    const $tituloBig = jQuery("#tituloBig");
+    jQuery(document).ready(function() {
+        const $tituloBig = jQuery("#tituloBig");
 
-    function bindHoverEvents() {
-        jQuery('.servicosHome').hover(
-            function () {
-                if (window.innerWidth > 768) { // Verifica largura da tela
-                    // Quando o mouse entra
-                    const $span = jQuery(this).children('span');
-                    if ($span.length) {
-                        const info = $span.html(); // Captura o HTML dentro do span
-                        $tituloBig.html(info) // Atualiza o conteúdo do elemento com ID 'tituloBig'
-                            .addClass("ShowTituloHome") // Adiciona a classe 'ShowTituloHome'
-                            .removeClass("fadeTitulo"); // Remove classe de fade, caso ainda esteja ativa
+        function bindHoverEvents() {
+            jQuery('.servicosHome').hover(
+                function() {
+                    if (window.innerWidth > 768) { // Verifica largura da tela
+                        // Quando o mouse entra
+                        const $span = jQuery(this).children('.destaque');
+                        if ($span.length) {
+                            const info = $span.html(); // Captura o HTML dentro do span
+                            $tituloBig.html(info) // Atualiza o conteúdo do elemento com ID 'tituloBig'
+                                .addClass("ShowTituloHome") // Adiciona a classe 'ShowTituloHome'
+                                .removeClass("fadeTitulo"); // Remove classe de fade, caso ainda esteja ativa
+                        }
+                    }
+                },
+                function() {
+                    if (window.innerWidth > 768) { // Verifica largura da tela
+                        // Quando o mouse sai
+                        $tituloBig.removeClass("ShowTituloHome") // Remove a classe 'ShowTituloHome'
+                            .addClass("fadeTitulo"); // Adiciona a classe 'fadeTitulo'
+
+                        // Remove o fade após 300ms
+                        setTimeout(() => $tituloBig.removeClass("fadeTitulo"), 300);
                     }
                 }
-            },
-            function () {
-                if (window.innerWidth > 768) { // Verifica largura da tela
-                    // Quando o mouse sai
-                    $tituloBig.removeClass("ShowTituloHome") // Remove a classe 'ShowTituloHome'
-                        .addClass("fadeTitulo"); // Adiciona a classe 'fadeTitulo'
 
-                    // Remove o fade após 300ms
-                    setTimeout(() => $tituloBig.removeClass("fadeTitulo"), 300);
-                }
-            }
-        );
-    }
-
-    function unbindHoverEvents() {
-        jQuery('.servicosHome').off('mouseenter mouseleave');
-    }
-
-    function handleResize() {
-        if (window.innerWidth > 768) {
-            bindHoverEvents();
-        } else {
-            unbindHoverEvents();
+            );
         }
-    }
 
-    // Executa no carregamento inicial
-    handleResize();
+        function unbindHoverEvents() {
+            jQuery('.servicosHome').off('mouseenter mouseleave');
+        }
 
-    // Monitora alterações de tamanho da janela
-    jQuery(window).resize(handleResize);
-});
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                bindHoverEvents();
+            } else {
+                unbindHoverEvents();
+                jQuery("#tituloBig").hide();
+            }
+        }
 
+        // Executa no carregamento inicial
+        handleResize();
+
+        // Monitora alterações de tamanho da janela
+        jQuery(window).resize(handleResize);
+    });
 </script>
 
 
 
 
 
-<!----------------------------------------------------------------------------------->
-<!----------aqui eu descubro se a div é horizontal ou vertical----------------------->
+
+
+
 <script src="<?php echo tema; ?>/javascript/efeitosTela/DivVerticalHorizontal.js"></script>
-<!----------------------------------------------------------------------------------->
-<!-------------Atualizando o css------------------------------------------------------>
+
+
 <script src="<?php echo tema; ?>/javascript/efeitosTela/AtualizaCSS.js"></script>
-<!----------------------------------------------------------------------------------->
-<!---------------Controle da tela do site-------------------------------------------->
+
+
 <script src="<?php echo tema; ?>/javascript/efeitosTela/Tela.js"></script>
-<!----------------------------------------------------------------------------------->
-<!---------------------piscando os botões-------------------------------------------->
+
+
 <script src="<?php echo tema; ?>/javascript/efeitosTela/piscandoosBotoes.js"></script>
-<!------------------------------------------------------------------------------------>
 
 
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
+
 <script>
     /*
     document.addEventListener("DOMContentLoaded", function() {
@@ -173,9 +212,7 @@ if (is_home()) {
     });
     */
 </script>
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
+
 
 
 
@@ -260,8 +297,75 @@ if (is_home()) {
         });
     });
 </script>
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
+
+
+
+
+
+
+<script>
+  
+  document.addEventListener("DOMContentLoaded", () => {
+        // Configurações
+        const minDivs = 5; // Mínimo de divs a serem criadas
+        const maxDivs = 10; // Máximo de divs a serem criadas
+        const minSpeed = 5; // Velocidade mínima em segundos
+        const maxSpeed = 42; // Velocidade máxima em segundos
+
+        const parentElements = document.querySelectorAll('.backgroundForm');
+
+        // Função para gerar um número aleatório dentro de um intervalo
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Função para criar divs e movimentá-las
+        function createAndMoveDivs(parent) {
+            // Gera entre `minDivs` e `maxDivs` divs
+            const numDivs = Math.floor(random(minDivs, maxDivs + 1));
+
+            for (let i = 0; i < numDivs; i++) {
+                const div = document.createElement('div');
+                div.classList.add('moveBG');
+
+                // Define uma posição inicial aleatória dentro do pai
+                div.style.left = `${random(0, parent.clientWidth - 30)}px`;
+                div.style.top = `${random(0, parent.clientHeight - 30)}px`;
+
+                parent.appendChild(div);
+
+                // Função para movimentar a div
+                function moveDiv() {
+                    const newX = random(0, parent.clientWidth - 30);
+                    const newY = random(0, parent.clientHeight - 30);
+                    const duration = random(minSpeed, maxSpeed) * 1000; // Velocidade configurada em segundos
+
+                    // Aplica a transição
+                    div.style.transition = `transform ${duration}ms linear`;
+                    div.style.transform = `translate(${newX - parseFloat(div.style.left)}px, ${newY - parseFloat(div.style.top)}px)`;
+
+                    // Atualiza a posição final após o movimento
+                    setTimeout(() => {
+                        div.style.left = `${newX}px`;
+                        div.style.top = `${newY}px`;
+                        div.style.transform = 'none'; // Reseta a transformação
+                        moveDiv(); // Recursivamente chama a função
+                    }, duration);
+                }
+
+                moveDiv();
+            }
+        }
+
+        // Aplica a lógica para cada elemento com a classe backgroundForm
+        parentElements.forEach(parent => createAndMoveDivs(parent));
+    });
+</script>
+
+
+
+
+
 
 
 

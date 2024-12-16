@@ -56,7 +56,48 @@ add_action('widgets_init', 'meu_tema_sidebar');
 
 
 
+/**************************Criando o custom post WebDesign*********************************/
+/******************************************************************************************/
+/******************************************************************************************/
+/******************************************************************************************/
 
+function criar_custom_post_webdesign()
+{
+    $labels = array(
+        'name'               => 'Web Designs',
+        'singular_name'      => 'Web Design',
+        'menu_name'          => 'Web Design',
+        'add_new'            => 'Adicionar Novo',
+        'add_new_item'       => 'Adicionar Novo Web Design',
+        'edit_item'          => 'Editar Web Design',
+        'new_item'           => 'Novo Web Design',
+        'view_item'          => 'Ver Web Design',
+        'all_items'          => 'Todos os Web Designs',
+        'search_items'       => 'Buscar Web Designs',
+        'not_found'          => 'Nenhum Web Design encontrado',
+        'not_found_in_trash' => 'Nenhum Web Design encontrado na lixeira',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-laptop',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies'         => array('category', 'post_tag'), // Habilita categorias e tags
+        'rewrite'            => array('slug' => 'webdesign'),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type('webdesign', $args);
+}
+add_action('init', 'criar_custom_post_webdesign');
+
+/******************************************************************************************/
+/******************************************************************************************/
+/******************************************************************************************/
+/******************************************************************************************/
 
 
 
@@ -95,55 +136,66 @@ add_action('widgets_init', 'meu_tema_sidebar');
 require_once "" . $addr . "/funcoes/banners.php";
 
 
-function inserir_html_no_meio_do_conteudo($content, $categoria, $indices_insercao = [2, 4], $conteudos_para_inserir = []) {
-    // Obtenha os conteúdos dinâmicos (exemplo de banners)
-    $x = Banner1(); // Pode ser qualquer conteúdo dinâmico
-    $Cat = GetCategoria($categoria); 
-    $y = Banner2($Cat); // Outro conteúdo dinâmico baseado na categoria
+function inserir_html_no_meio_do_conteudo($content, $categoria, $indices_insercao = [2, 4], $conteudos_para_inserir = [])
+{
+    $result = "";
+    $linha = 0;
 
-
-
-    //echo "$categoria";
-
-
-    // Defina os conteúdos a serem inseridos
-    $conteudos_para_inserir[2] = $x;  // Exemplo de como o conteúdo será adicionado a um índice
-    $conteudos_para_inserir[4] = $y;
-
-    // Verifica se há parágrafos para dividir
-    if (strpos($content, '</p>') !== false) {
-        // Divida o conteúdo em parágrafos
+    if (strpos($content, '</p>') !== false):
         $paragrafos = explode('</p>', $content);
 
-        // Adicione o HTML na posição desejada
-        foreach ($paragrafos as $index => &$paragrafo) {
-            // Adiciona o `</p>` que foi removido pelo `explode`
-            $paragrafo .= '</p>';
+        $x = count($paragrafos);
 
-            // Insere o conteúdo nos índices desejados
-            if (in_array($index, $indices_insercao)) {
-                if (isset($conteudos_para_inserir[$index])) {
-                    $conteudo = $conteudos_para_inserir[$index];
-                    if ($conteudo != null) {
-                        $paragrafo .= $conteudo; // Adiciona o conteúdo específico no parágrafo
-                    }
-                }
-            }
-        }
 
-        // Recompõe o conteúdo
-        $content = implode('', $paragrafos);
-    }
 
-    return $content;
+        foreach ($paragrafos as $p):
+            //$result .= "<p>";
+            $result .=  $p;
+            //$result .= "!!</p>";
+
+
+            if ($linha === 1):
+                $result .= Banner1();
+            else: { }
+            endif;
+
+            if ($linha === 2):
+                $result .= Banner2(GetCategoria($categoria));
+            else: { }
+            endif;
+
+
+            /*
+            if ($linha === 0):
+                $result.="<p>";
+                $result.=Banner1();
+                $result.="#</p>";
+            else:{echo"##";}
+            endif;
+
+            if ($linha === 1):
+                $result.="<p>";
+                $result.=Banner2(GetCategoria($categoria));
+                $result.="@</p>";
+            else:{echo"##";}
+            endif; 
+            */
+
+
+            $linha++;
+        endforeach;
+    endif;
+    return $result;
 }
 
 
 /****************************************************************************************/
 function GetCategoria($categoria)
 {
-    $nome = $categoria[0]->name;
-    $link = get_category_link($categoria[0]->term_id);
-    return array($nome, $link);
+    if (isset($categoria[0]->name)) {
+        $nome = $categoria[0]->name;
+        $link = get_category_link($categoria[0]->term_id);
+        return array($nome, $link);
+    }
 }
 /****************************************************************************************/

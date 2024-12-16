@@ -1,0 +1,17 @@
+@import "mobile";
+//@import "tablet";
+@import "desktop";
+
+
+
+
+*:has(.page-numbers) {
+    background-color: transparent;
+}
+
+
+.page-numbers{
+    border: 1px solid $cor1;
+    color:$cor1;
+    padding: 0.4vw;
+}

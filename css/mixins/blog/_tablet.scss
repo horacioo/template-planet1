@@ -12,7 +12,7 @@
 
 @include respond-to(tablet) {
     #blog {
-        @imclude fontes();
+        @include fontes();
 
         height: auto;
         padding-bottom: 1.029296875vw; //padding-bottom: 5.029296875vw;

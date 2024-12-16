@@ -36,7 +36,8 @@ $descricao2 = get_field('descricao2', 'category_' . $current_category);
 $desc1Img = get_field('imgdesc', 'category_' . $current_category);
 if ($desc1Img) {
     $imagemContent = "<picture><img src='" . $desc1Img . "' alt='teste' ></picture>";
-} else {
+}
+else{
     $imagemContent = "";
 }
 /************************************************************************************************/
@@ -48,9 +49,8 @@ if ($desc1Img) {
 $desc1Img2 = get_field('imgdesc2', 'category_' . $current_category);
 if ($desc1Img2) {
     $imagemContent2 = "<picture><img src='" . $desc1Img2 . "' alt='teste' ></picture>";
-} else {
-    $imagemContent2 = "";
 }
+else{ $imagemContent2 = "";}
 
 /***********************************************************************************/
 
@@ -68,12 +68,12 @@ $tamanhos = [
 
 
 if (isset($descricao)) {
-    echo "<div id='descricao'><div>" . $descricao . "</div>  " . $imagemContent . "  </div>";
+    echo "<span id='descricao'><div>" . $descricao . "</div>  " . $imagemContent . "  </span>";
 }
 if (isset($descricao2)) {
-    echo "<div id='descricao2'><div>" . $descricao2 . "</div>  $imagemContent2 </div>";
+    echo "<span id='descricao2'><div>" . $descricao2 . "</div>  $imagemContent2 </span>";
 } else {
-    echo "<div id='descricao2'></div>";
+    echo "<span id='descricao2'></span>";
 }
 /***********************************************************************************/
 
@@ -141,19 +141,15 @@ if ($query->have_posts()) :
 
 
             <div class="entry-content">
-            <?php $resumoInfo = get_the_excerpt();?>
+           
                 <p>
                     <picture>
                         <img alt="imagem do produto" width="219" height="134" src="<?php echo $img; ?>">
                     </picture>
                 </p>
-
+               
                 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <p>
-                    <a class="resumo" href="<?php the_permalink(); ?>">
-                        <?php echo strip_tags($resumoInfo) ?>
-                    </a>
-                </p>
+                <p><a class="resumo" href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
 
             </div>
 
@@ -173,8 +169,8 @@ if ($query->have_posts()) :
 
 
 <?php
-    ///echo "</div>";
-
+    echo "</div>";
+    // Paginação 
     the_posts_pagination();
     wp_reset_postdata();
 else :
@@ -221,3 +217,4 @@ if ($current_category->parent) {
 
 
 <div class='open'>Tela inteira</div>
+

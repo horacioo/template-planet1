@@ -1,0 +1,159 @@
+@import "../../../css/mixins/heights";
+@import "../../../css/cores/cores";
+@import "../../../css/mixins/fontes";
+@import "../../../css/mixins/button";
+@import "../../../css/util/_breakpoints";
+@import "../../../css/mixins/button";
+
+@import "../../../css/mixins/links";
+@import "./../../menu/css/menuInterno/mobile";
+@import "./../../footer/css/mobile";
+
+$paddingDescription: 3vw;
+
+@mixin descricoes() {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: justify;
+    line-height: 1.5;
+    @include fontes();
+    color: $cor1;
+    padding-left: $paddingDescription;
+    padding-right: $paddingDescription;
+
+    a {
+        color: $cor1;
+    }
+
+    img {
+        //max-width: 40%;
+        height: auto;
+        border: 1px solid $cor1;
+        margin: 2vw;
+        border-radius: 2vw;
+    }
+}
+
+@include respond-to(mobile) {
+    picture {
+        overflow: hidden;
+        max-width: 100%;
+        img {
+            max-width: 99.9%;
+            height: fit-content;
+        }
+    }
+
+    body {
+        // border: 1px solid red;
+        width: 98.89vw;
+        position: relative;
+        @include fontes();
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "thumb"
+            "header"
+            "main"
+            "desc1"
+            "desc2"
+            "trabWeb"
+            "footer";
+    }
+
+    /****************************************************/
+    /****************************************************/
+    /****************************************************/
+    #thumbPrincipal {
+        grid-area: thumb;
+        width: 99.1vw;
+        height: 50vh;
+        overflow: hidden;
+        position: relative;
+        img {
+            width:100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    #trabalhosWeb {
+        grid-area: trabWeb;
+        @include descricoes();
+        min-height: 70vh;
+        height: auto;
+        background-color: lighten($cor2, 20);
+        padding-top: 4vh;
+        position: relative;
+
+        #trabArrowNext,
+        #trabArrowPrev {
+            position: absolute;
+            border: 1px;
+            bottom: 10%;
+            transform:translateY(-10%);
+           border: 1px solid $cor1;
+           background-color: white;
+           padding: 2vw;
+        }
+
+
+        #trabArrowPrev{}
+        #trabArrowNext{ right:4vw;}
+
+        ul {
+            li {
+                picture {
+                    width: 100%;
+                    display: block;
+                    max-width: 98%;
+                    img {
+                        width: 96%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+    #posts {
+        grid-area: posts;
+    }
+    h1 {
+        grid-area: paragrafo;
+        color: $cor1;
+    }
+    main {
+        @include descricoes();
+        grid-area: main;
+    }
+
+    #descricao {
+        grid-area: desc1;
+        @include descricoes();
+        background-color: lighten($cor2, 20);
+    }
+
+    footer {
+        grid-area: footer;
+        @include descricoes();
+        color: white;
+    }
+
+    #descricao2 {
+        grid-area: desc2;
+        @include descricoes();
+        //background-color: lighten($cor1,50);
+    }
+
+    header {
+        grid-area: header;
+        @include descricoes();
+    }
+    /****************************************************/
+    /****************************************************/
+    /****************************************************/
+}

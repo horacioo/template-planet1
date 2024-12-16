@@ -28,11 +28,6 @@
 
 
 
-    <!------------------------------------------------------------>
-    <!------------------------------------------------------------>
-    <!------------------------------------------------------------>
-    <!------------------------------------------------------------>
-
     <?php
     $parent_id = 11; // ID da página pa
     $child_pages = get_pages(array(
@@ -58,10 +53,12 @@
             /**************************************************/
 
             echo '<li class="servicosHome"> 
-                    <span>
+                    
+                    <div class="destaque">
                     <a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>
                     <p>'.get_the_excerpt( $page->ID ).'</p>
-                    </span>
+                    </div>
+
                         <a href="' . get_permalink($page->ID) . '">
                             <picture> 
                                 <img src="' . $imagens['urls']['373x386'] . '" alt="' . get_the_title($page->ID) . '">
@@ -101,7 +98,7 @@
 
     <div id="separador"></div>
 
-    <!-------------------------------------------------------->
+
     <section id="englisVersion">
         <h2>We Serve Clients Across the U.S. with Ease!</h2>
         <p>At Planet1, we specialize in delivering high-quality websites and systems, no matter where you are in the United States. From New York to California, we make remote collaboration seamless and efficient.</p>
@@ -114,8 +111,8 @@
         <p id="conclusion">Let’s talk about your project</p>
         <a href="#" id="moreData">more</a>
     </section>
-    <!-------------------------------------------------------->
 
-    <div id="separador"></div>
+
+    <div id="separador2"></div>
 
 </main>

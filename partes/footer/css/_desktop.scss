@@ -26,7 +26,7 @@ $fontSize: 1.26015625vw;
 
 @include respond-to(bigger) {
     footer {
-        
+        z-index: 400000000;
         background-color: lighten($cor1, 0);
         padding-left: 8.59375vw;
         padding-right: 8.59375vw;
@@ -35,7 +35,10 @@ $fontSize: 1.26015625vw;
         gap: 0.9765625vw;
         justify-content: space-around;
         padding-bottom: 2.2353515625vw;
-
+        color: white;
+        a{
+            color: white;
+        }
 
         #contato {
             /******************************/
@@ -64,9 +67,12 @@ $fontSize: 1.26015625vw;
                 flex-wrap: wrap; 
                 justify-content: space-between;
                 li{
-                    
+                    color: white; 
                     white-space: nowrap;
                     font-size: $fontSize;
+                    a{
+                        color: white;
+                    }
                 }
             }
         }
